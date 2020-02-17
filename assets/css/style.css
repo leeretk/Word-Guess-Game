@@ -29,10 +29,20 @@ h1 {
 
 h2 {
   font-size: 1.6em;
+  font-weight: normal;
 }
 
 p {
   font-size: 1.6em;
+  font-weight: normal;
+  color: white;
+}
+
+.category-p {
+  font-size: 50px;
+  font-weight: normal;
+  font-weight: lighter;
+  color: white;
 }
 
 /************ CONTAINERS ******************/
@@ -40,9 +50,10 @@ p {
 .alphabetNotice {
   background-color: #ffc500;
   color: #7f0909;
-  font-size: 30px;
+  font-size: 40px;
+  font-weight: normal;
   text-align: center;
-}
+  }
 
 body {
   background: #7f0909;
@@ -97,14 +108,16 @@ canvas {
    }
 
 #alphabet li:hover {
-  border: solid 1px #7f0909;
-  color: #fff;
+  border: solid 1px #ffc500 ;
+  color: grey;
+  background-color: blue;
 }
 
 /************ MY WORDS ******************/
 #my-word {
   display: block;
   display:block;
+color: #ffc500;  
 }
 
 #my-word li {
@@ -167,9 +180,9 @@ button:hover {
   }
 
 .clueFormat {
-    font-size: 30px;
-    text-align: center;
-    display: inline-block;
+    font-weight: normal;
+    color: white;
+    background-color: ffc500;
     }
 
 .myWins {
