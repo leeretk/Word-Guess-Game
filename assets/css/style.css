@@ -1,195 +1,4 @@
 /*--Class=CSS and ID=Javascript-->*/
-
-/************ IMAGES ******************/
-
-img {
-  width: 150px;
-  height: 150px;
-}
-
-/************ ALERT ******************/
-
-.alert {
-  background-color: #ffc500;
-  color: #7f0909;
-  font-size: 30px;
-}
-
-/************ CONTAINERS ******************/
-body {
-  background: #7f0909;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  color:#ffc500 ;
-  height: 100%;
-  text-align: center;
-  font-size: 18px;
-}
-
-.container { padding-top: 20px;
-}
-
-.wrapper {
-  width: 100%;
-  margin: 0 auto;
-}
-
-.wrapper:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-canvas {
-  color: #fff;
-  border: #fff dashed 2px;
-  padding: 15px;
-}
-
-/************ HEADINGS ******************/
-
-header {  
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  background-color: #7f0909;
-  color: #ffc500;
-  padding-top: 50px;
-  padding-bottom: 50px;
-  text-align: center;
-  }
-
-h1, h2, h3 {
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  margin: 10px 0;
-  background-color: #7f0909;
-  color: #ffc500;
-}
-
-h1 {
-  font-size: 2.6em;
-}
-
-h2 {
-  font-size: 1.6em;
-}
-
-p {
-  font-size: 1.6em;
-}
-
-/************ ALPHABET ### ID's ### ******************/
-
-@media (max-width: 767px) {
-  #alphabet {
-    border-style: groove;
-    border-color: #ffc500;
-  }
-}
-@media (max-width: 480px) {
-  #alphabet {
-    border-style: groove;
-    border-color: #ffc500;
-    padding: 0 0 0 25px;
-  }
-}
-
-#alphabet {
-  width: 30px;
-  height: 30px;
-  border-style: solid;
-  padding: 2px;
-}
-
-#alphabet li {
-  -webkit-border-radius: 5px;
-}
-
-#alphabet li:hover {
-  border: solid 1px #7f0909;
-  color: #fff;
-}
-/************ MY WORDS ******************/
-#my-word {
-  display: block;
-  display: block;
-}
-
-#my-word li {
-  position: relative;
-  list-style: none;
-  margin: 0;
-  display: inline-block;
-  padding: 0 10px;
-  font-size: 1.6em;
-}
-
-.active {
-  opacity: 0.4;
-  filter: alpha(opacity=40);
-  -moz-transition: all 1s ease-in;
-  -moz-transition: all 0.3s ease-in-out;
-  -webkit-transition: all 0.3s ease-in-out;
-  cursor: default;
-}
-
-.active:hover {
-  -moz-transition: all 1s ease-in;
-  -moz-transition: all 0.3s ease-in-out;
-  -webkit-transition: all 0.3s ease-in-out;
-  opacity: 0.4;
-  filter: alpha(opacity=40);
-  -moz-transition: all 1s ease-in;
-  -moz-transition: all 0.3s ease-in-out;
-  -webkit-transition: all 0.3s ease-in-out;
-}
-
-
-/************ MY COUNTS ******************/
-
-.mylives {
-  font-size: 30px;
-  text-align: center;
-  display: inline-block;
-  }
-
-.myWins {
-  font-size: 30px;
-  text-align: center;
-  display: inline-block;
-}
-
-.myLosses {
-  font-size: 30PX;
-  text-align: center;
-  display: inline-block;
-}
-
-/************BUTTON DEFINITIONS ******************/
-
-button {
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
-  -khtml-border-radius: 5px;
-  background: #ffc500;
-  color:black;
-  border: solid 2px #fff;
-  text-decoration: none;
-  cursor: pointer;
-  font-size: 1.2em;
-  padding: 25px 12px;
-  width: 200px;
-  margin: 10px;
-  outline: none;
-}
-button:hover {
-  -webkit-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-  background: grey;
-  border: solid 1px #fff;
-  color: #ffc500 ;
-}
-
-
 /* Mixin's */ 
 
 @mixin transition {
@@ -236,3 +45,206 @@ button:hover {
   border-radius: $radius; 
   -khtml-border-radius: $radius; 
 }
+
+/************ IMAGES ******************/
+
+img {
+  width: 150px;
+  height: 150px;
+}
+
+/************ HEADINGS ******************/
+
+header {  
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  background-color: #7f0909;
+  color: #ffc500;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  text-align: center;
+  }
+
+h1, h2, h3 {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  margin: 10px 0;
+  background-color: #7f0909;
+  color: #ffc500;
+}
+
+h1 {
+  font-size: 2.6em;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+h2 {
+  font-size: 1.6em;
+}
+
+p {
+  font-size: 1.6em;
+}
+
+/************ CONTAINERS ******************/
+
+.alphabetNotice {
+  background-color: #ffc500;
+  color: #7f0909;
+  font-size: 30px;
+  text-align: center;
+}
+
+body {
+  background: #7f0909;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color:#ffc500 ;
+  height: 100%;
+  text-align: center;
+  font-size: 18px;
+}
+
+.buttonContainer { padding-top: 20px;
+}
+
+.wrapper {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.wrapper:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+canvas {
+  color: #fff;
+  border: #fff dashed 2px;
+  padding: 15px;
+}
+
+/************ ALPHABET ### ID's ### ******************/
+
+#alphabet {
+  width: 30px;
+  height: 30px;
+  min-width: 900px;
+  display: inline-block;
+  color: #fff;
+  font-size: 25px;
+      }
+
+#alphabet li {
+  list-style: none;
+  border: #7f0909;
+  display: inline-block;
+  text-align: center;
+  padding-left: 6px;
+  padding-right: 6px;
+  border-style: groove;
+  border-color: #ffc500;
+   }
+
+#alphabet li:hover {
+  border: solid 1px #7f0909;
+  color: #fff;
+}
+
+@media (max-width: 767px) {
+  #alphabet {
+    min-width: 900px;
+      }
+}
+
+/************ MY WORDS ******************/
+#my-word {
+  display: block;
+  display: block;
+}
+
+#my-word li {
+  position: relative;
+  list-style: none;
+  margin: 0;
+  display: inline-block;
+  padding: 0 10px;
+  font-size: 1.6em;
+}
+
+.active {
+  opacity: 0.4;
+  filter: alpha(opacity=40);
+  -moz-transition: all 1s ease-in;
+  -moz-transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  cursor: default;
+}
+
+.active:hover {
+  -moz-transition: all 1s ease-in;
+  -moz-transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  opacity: 0.4;
+  filter: alpha(opacity=40);
+  -moz-transition: all 1s ease-in;
+  -moz-transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+}
+
+/************BUTTON DEFINITIONS ******************/
+
+button {
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  -khtml-border-radius: 5px;
+  background: #ffc500;
+  color:black;
+  border: solid 2px #fff;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 1.2em;
+  padding: 25px 12px;
+  width: 200px;
+  margin: 10px;
+  outline: none;
+}
+
+button:hover {
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background: grey;
+  border: solid 1px #fff;
+  color: #ffc500 ;
+}
+
+/************ MY COUNTS ******************/
+
+.mylives {
+  font-size: 30px;
+  text-align: center;
+  display: inline-block;
+  }
+
+.clueFormat {
+    font-size: 30px;
+    text-align: center;
+    display: inline-block;
+    }
+
+.myWins {
+  font-size: 30px;
+  text-align: center;
+  display: inline-block;
+  padding: 10px;
+}
+
+.myLosses {
+  font-size: 30PX;
+  text-align: center;
+  display: inline-block;
+  padding: 10px;
+}
+
+
+

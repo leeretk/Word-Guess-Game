@@ -2,9 +2,10 @@
 
 window.onload = function () {
 
-    //**********************SET VARIABLES************************
 
-    var alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "_"];
+//**********************SET VARIABLES************************
+
+    var alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 
     var categories;         // Array of topics
     var chosenCategory;     // Selected catagory
@@ -12,17 +13,78 @@ window.onload = function () {
     var guess;             // Geuss
     var geusses = [];      // Stored geusses
     var lives;             // Lives
-    var wins;               //Wins
-    var losses;             //Losses
     var counter;           // Count correct geusses
     var space;              // Number of spaces in word '-'
+
+  // Get elements
+  var showLives = document.getElementById("mylives");
+  var showCatagory = document.getElementById("categories");
+  var getHint = document.getElementById("hint");
+  var showClue = document.getElementById("clue");
+  var showWins = document.getElementById("myWins");
+  var showLosses = document.getElementById("myLosses");
     
+
+//**********************CREATE ALPHABET************************    
+
+     var buttons = function () {
+        
+        myButtons = document.getElementById('buttons');
+        
+        letters = document.createElement('ul');
+
+        for (var i = 0; i < alphabet.length; i++) {
+            letters.id = 'alphabet';
+            list = document.createElement('li');
+            list.id = 'letter';
+            list.innerHTML = alphabet[i];
+            check();
+            myButtons.appendChild(letters);
+            letters.appendChild(list);
+        }
+    };
+
+        //**********************CHOOSE CATEGORY************************    
+
+        var selectCat = function () {
+            if (chosenCategory === categories[0]) {
+                catagoryName.innerHTML = "The Chosen Category Is Wizards";
+            } else if (chosenCategory === categories[1]) {
+                catagoryName.innerHTML = "The Chosen Category Is Quidditch";
+            } else if (chosenCategory === categories[2]) {
+                catagoryName.innerHTML = "The Chosen Category Hogwartz Houses";
+            } else if (chosenCategory === categories[2]) {
+                catagoryName.innerHTML = "The Chosen Category Books";
+            }
+        };
+
+    //**********************CREATE GUESSES (LIST UL) ************************       
+
+    result = function () {
+        wordHolder = document.getElementById('hold');
+        correct = document.createElement('ul');
+        for (var i = 0; i < word.length; i++) {
+            correct.setAttribute('id', 'my-word');
+            guess = document.createElement('li');
+            guess.setAttribute('class', 'guess');
+            if (word[i] === "-") {
+                guess.innerHTML = "-";
+                space = 1;
+            } else {
+                guess.innerHTML = "_";
+            }
+            geusses.push(guess);
+            wordHolder.appendChild(correct);
+            correct.appendChild(guess);
+        }
+    };
+
 
     //**********************LIVES************************
 
     //Show Lives
     var showLives = document.getElementById("mylives");
-    var showCatagory = document.getElementById("scatagory");
+    var showCatagory = document.getElementById("catagory");
 
     comments = function () {
         showLives.innerHTML = "You have " + lives + " lives";
@@ -63,97 +125,10 @@ window.onload = function () {
         showClue.innerHTML = "Clue: - " + hints[catagoryIndex][hintIndex];
     };
 
-    //**********************WINS************************
-
-    //Show Wins
-    var getWin = document.getElementById("win");
-    var showWins = document.getElementById("myWins");
-    var Wins = 0;
-
-    comments = function () {
-        showWins.innerHTML = "You have " + Wins + " Wins";
-        if (Wins < 1) {
-            showWins.innerHTML = "Game Over";
-        }
-        for (var i = 0; i < geusses.length; i++) {
-            if (counter + space === geusses.length) {
-                showWins.innerHTML = "You Win!";
-            }
-        }
-    };
-
-
-    //**********************LOSSES************************    
     
-    var getLose = document.getElementById("lose");
-    var showLoses = document.getElementById("myLosses");
-    var Losses = 0;
-
-    comments = function () {
-        showLosses.innerHTML = "You have " + Losses + " Losses";
-        if (Losses < 1) {
-            showLosses.innerHTML = "Game Over";
-        }
-        for (var i = 0; i < geusses.length; i++) {
-            if (counter + space === geusses.length) {
-                showLosses.innerHTML = "You Lose";
-            }
-        }
-    };
 
 
-    //**********************CREATE ALPHABET************************    
-
-    var buttons = function () {
-        myButtons = document.getElementById('buttons');
-        letters = document.createElement('ul');
-        for (var i = 0; i < alphabet.length; i++) {
-            letters.id = 'alphabet';
-            list = document.createElement('li');
-            list.id = 'letter';
-            list.innerHTML = alphabet[i];
-            check();
-            myButtons.appendChild(letters);
-            letters.appendChild(list);
-        }
-    };
-
-
-    //**********************CHOOSE CATEGORY************************    
-
-    var selectCat = function () {
-        if (chosenCategory === categories[0]) {
-            catagoryName.innerHTML = "The Chosen Category Is Wizards";
-        } else if (chosenCategory === categories[1]) {
-            catagoryName.innerHTML = "The Chosen Category Is Quidditch";
-        } else if (chosenCategory === categories[2]) {
-            catagoryName.innerHTML = "The Chosen Category Hogwartz Houses";
-        } else if (chosenCategory === categories[2]) {
-            catagoryName.innerHTML = "The Chosen Category Books";
-        }
-    };
-
-    //**********************CREATE GUESSES (LIST UL) ************************       
-
-    result = function () {
-        wordHolder = document.getElementById('hold');
-        correct = document.createElement('ul');
-        for (var i = 0; i < word.length; i++) {
-            correct.setAttribute('id', 'my-word');
-            guess = document.createElement('li');
-            guess.setAttribute('class', 'guess');
-            if (word[i] === "-") {
-                guess.innerHTML = "-";
-                space = 1;
-            } else {
-                guess.innerHTML = "_";
-            }
-            geusses.push(guess);
-            wordHolder.appendChild(correct);
-            correct.appendChild(guess);
-        }
-    };
-
+   
     //**********************HANGMAN************************      
 
     // Animate man
@@ -234,6 +209,45 @@ window.onload = function () {
         };
     };
 
+//**********************WINS************************
+
+    //Show Wins
+    var wins;               //Wins
+    var getWin = document.getElementById("win");
+    var showWins = document.getElementById("myWins");
+    var Wins = 0;
+
+    comments = function () {
+        showWins.innerHTML = "You have " + Wins + " Wins";
+        if (Wins < 1) {
+            showWins.innerHTML = "Game Over";
+        }
+        for (var i = 0; i < geusses.length; i++) {
+            if (counter + space === geusses.length) {
+                showWins.innerHTML = "You Win!";
+            }
+        }
+    };
+
+
+    //**********************LOSSES************************
+        
+    var losses;             //Losses
+    var getLose = document.getElementById("lose");
+    var showLoses = document.getElementById("myLosses");
+    var Losses = 0;
+
+    comments = function () {
+        showLosses.innerHTML = "You have " + Losses + " Losses";
+        if (Losses < 1) {
+            showLosses.innerHTML = "Game Over";
+        }
+        for (var i = 0; i < geusses.length; i++) {
+            if (counter + space === geusses.length) {
+                showLosses.innerHTML = "You Lose";
+            }
+        }
+    };
 
     //**********************PLAY THE GAME ************************    
 
