@@ -1,19 +1,39 @@
-/* Variabes */
-/* Mixin's */
+/*--Class=CSS and ID=Javascript-->*/
+
+/************ IMAGES ******************/
+
+img {
+  width: 150px;
+  height: 150px;
+}
+
+/************ ALERT ******************/
+
+.alert {
+  background-color: #ffc500;
+  color: #7f0909;
+  font-size: 30px;
+}
+
+/************ CONTAINERS ******************/
 body {
-  background: #c1d72e;
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-  color: #fff;
+  background: #7f0909;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color:#ffc500 ;
   height: 100%;
   text-align: center;
   font-size: 18px;
 }
 
-.wrappper {
+.container { padding-top: 20px;
+}
+
+.wrapper {
   width: 100%;
   margin: 0 auto;
 }
-.wrappper:after {
+
+.wrapper:after {
   content: "";
   display: table;
   clear: both;
@@ -25,11 +45,22 @@ canvas {
   padding: 15px;
 }
 
+/************ HEADINGS ******************/
+
+header {  
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  background-color: #7f0909;
+  color: #ffc500;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  text-align: center;
+  }
+
 h1, h2, h3 {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 100;
-  text-transform: uppercase;
-  margin: 5px 0;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  margin: 10px 0;
+  background-color: #7f0909;
+  color: #ffc500;
 }
 
 h1 {
@@ -44,11 +75,32 @@ p {
   font-size: 1.6em;
 }
 
-#alphabet {
-  margin: 15px auto;
-  padding: 0;
-  max-width: 900px;
+/************ ALPHABET ### ID's ### ******************/
+
+@media (max-width: 767px) {
+  #alphabet {
+    border-style: groove;
+    border-color: #ffc500;
+    padding: 0 0 0 15px;
+  }
 }
+@media (max-width: 480px) {
+  #alphabet {
+    border-style: groove;
+    border-color: #ffc500;
+    padding: 0 0 0 25px;
+  }
+}
+
+#alphabet {
+  width: 30px;
+  height: 30px;
+  border-style: solid;
+  padding: 2px;
+  float: left;
+  margin: 2px;
+}
+
 #alphabet:after {
   content: "";
   display: table;
@@ -62,20 +114,23 @@ p {
   width: 35px;
   height: 30px;
   padding-top: 10px;
-  background: #fff;
-  color: #c1d72e;
+  background: #ffc500;
+  border: solid 1px #7f0909;
   cursor: pointer;
-  -moz-border-radius: 5px;
+  -moz-border-radius: 10px;
   -webkit-border-radius: 5px;
   border-radius: 5px;
   -khtml-border-radius: 5px;
-  border: solid 1px #fff;
+  border: solid 2px #fff;
 }
+
 #alphabet li:hover {
-  background: #c1d72e;
-  border: solid 1px #fff;
+  background: #ffc500;
+  border: solid 1px #7f0909;
   color: #fff;
 }
+
+/************ MY WORDS ******************/
 
 #my-word {
   margin: 0;
@@ -101,6 +156,7 @@ p {
   -webkit-transition: all 0.3s ease-in-out;
   cursor: default;
 }
+
 .active:hover {
   -moz-transition: all 1s ease-in;
   -moz-transition: all 0.3s ease-in-out;
@@ -112,25 +168,42 @@ p {
   -webkit-transition: all 0.3s ease-in-out;
 }
 
-#mylives {
-  font-size: 1.6em;
+
+/************ MY COUNTS ******************/
+
+.mylives {
+  font-size: 30px;
   text-align: center;
-  display: block;
+  display: inline-block;
+  }
+
+.myWins {
+  font-size: 30px;
+  text-align: center;
+  display: inline-block;
 }
+
+.myLosses {
+  font-size: 30PX;
+  text-align: center;
+  display: inline-block;
+}
+
+/************BUTTON DEFINITIONS ******************/
 
 button {
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   border-radius: 5px;
   -khtml-border-radius: 5px;
-  background: #c1d72e;
-  color: #fff;
-  border: solid 1px #fff;
+  background: #ffc500;
+  color:black;
+  border: solid 2px #fff;
   text-decoration: none;
   cursor: pointer;
   font-size: 1.2em;
-  padding: 18px 10px;
-  width: 180px;
+  padding: 25px 12px;
+  width: 200px;
   margin: 10px;
   outline: none;
 }
@@ -138,18 +211,9 @@ button:hover {
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
-  background: #fff;
+  background: grey;
   border: solid 1px #fff;
-  color: #c1d72e;
+  color: #ffc500 ;
 }
 
-@media (max-width: 767px) {
-  #alphabet {
-    padding: 0 0 0 15px;
-  }
-}
-@media (max-width: 480px) {
-  #alphabet {
-    padding: 0 0 0 25px;
-  }
-}
+
