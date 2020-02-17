@@ -8,11 +8,12 @@ window.onload = function () {
 
     var categories;         // Array of topics
     var chosenCategory;     // Selected catagory
-    var getHint;           // Word getHint
     var word;              // Selected word
     var guess;             // Geuss
     var geusses = [];      // Stored geusses
     var lives;             // Lives
+    var wins;               //Wins
+    var losses;             //Losses
     var counter;           // Count correct geusses
     var space;              // Number of spaces in word '-'
     
@@ -33,13 +34,15 @@ window.onload = function () {
                 showLives.innerHTML = "You Win!";
             }
         }
-    }
+    };
 
     //**********************CLUES************************
 
     //Show Hints/Clues
-    var getHint = document.getElementById("hint");
-    var showClue = document.getElementById("clue");
+  
+  
+  var getHint = document.getElementById("hint");    
+  var showClue = document.getElementById("clue");
 
 
     //on click function for hints
@@ -77,7 +80,7 @@ window.onload = function () {
                 showWins.innerHTML = "You Win!";
             }
         }
-    }
+    };
 
 
     //**********************LOSSES************************    
@@ -96,7 +99,7 @@ window.onload = function () {
                 showLosses.innerHTML = "You Lose";
             }
         }
-    }
+    };
 
 
     //**********************CREATE ALPHABET************************    
@@ -113,7 +116,7 @@ window.onload = function () {
             myButtons.appendChild(letters);
             letters.appendChild(list);
         }
-    }
+    };
 
 
     //**********************CHOOSE CATEGORY************************    
@@ -128,7 +131,7 @@ window.onload = function () {
         } else if (chosenCategory === categories[2]) {
             catagoryName.innerHTML = "The Chosen Category Books";
         }
-    }
+    };
 
     //**********************CREATE GUESSES (LIST UL) ************************       
 
@@ -149,7 +152,7 @@ window.onload = function () {
             wordHolder.appendChild(correct);
             correct.appendChild(guess);
         }
-    }
+    };
 
     //**********************HANGMAN************************      
 
@@ -157,7 +160,7 @@ window.onload = function () {
     var animate = function () {
         var drawMe = lives;
         drawArray[drawMe]();
-    }
+    };
 
     // Hangman
     canvas = function () {
@@ -173,12 +176,12 @@ window.onload = function () {
         context.beginPath();
         context.arc(60, 25, 10, 0, Math.PI * 2, true);
         context.stroke();
-    }
+    };
     draw = function ($pathFromx, $pathFromy, $pathTox, $pathToy) {
         context.moveTo($pathFromx, $pathFromy);
         context.lineTo($pathTox, $pathToy);
         context.stroke();
-    }
+    };
     frame1 = function () {
         draw(0, 150, 150, 150);
     };
@@ -228,8 +231,8 @@ window.onload = function () {
             } else {
                 comments();
             }
-        }
-    }
+        };
+    };
 
 
     //**********************PLAY THE GAME ************************    
@@ -255,8 +258,8 @@ window.onload = function () {
         comments();
         selectCat();
         canvas();
-    }
-    play();
+    };
+  play();
 
 
 
@@ -270,5 +273,5 @@ window.onload = function () {
         showClue.innerHTML = "";
         context.clearRect(0, 0, 400, 400);
         play();
-    }
-}
+    };
+};

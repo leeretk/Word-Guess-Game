@@ -81,7 +81,6 @@ p {
   #alphabet {
     border-style: groove;
     border-color: #ffc500;
-    padding: 0 0 0 15px;
   }
 }
 @media (max-width: 480px) {
@@ -97,45 +96,19 @@ p {
   height: 30px;
   border-style: solid;
   padding: 2px;
-  float: left;
-  margin: 2px;
-}
-
-#alphabet:after {
-  content: "";
-  display: table;
-  clear: both;
 }
 
 #alphabet li {
-  float: left;
-  margin: 0 10px 10px 0;
-  list-style: none;
-  width: 35px;
-  height: 30px;
-  padding-top: 10px;
-  background: #ffc500;
-  border: solid 1px #7f0909;
-  cursor: pointer;
-  -moz-border-radius: 10px;
   -webkit-border-radius: 5px;
-  border-radius: 5px;
-  -khtml-border-radius: 5px;
-  border: solid 2px #fff;
 }
 
 #alphabet li:hover {
-  background: #ffc500;
   border: solid 1px #7f0909;
   color: #fff;
 }
-
 /************ MY WORDS ******************/
-
 #my-word {
-  margin: 0;
   display: block;
-  padding: 0;
   display: block;
 }
 
@@ -217,3 +190,49 @@ button:hover {
 }
 
 
+/* Mixin's */ 
+
+@mixin transition {
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+@mixin clear {
+  &:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+}
+
+ @mixin box-size {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+ @mixin transition {
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+@mixin fade {
+  -moz-transition: all 1s ease-in;
+  -moz-transition:all 0.3s ease-in-out;
+  -webkit-transition:all 0.3s ease-in-out;
+}
+
+@mixin opacity {
+  opacity:0.4;
+  filter:alpha(opacity=40); 
+  @include fade;
+}
+
+@mixin corners ($radius) {
+  -moz-border-radius: $radius;
+  -webkit-border-radius: $radius;
+  border-radius: $radius; 
+  -khtml-border-radius: $radius; 
+}
