@@ -123,11 +123,16 @@ canvas {
 }
 
 /************ ALPHABET ### ID's ### ******************/
+@media (max-width: 900px) {
+  #alphabet {
+    min-width: 760px;
+      }
+}
 
 #alphabet {
   width: 30px;
   height: 30px;
-  min-width: 900px;
+  min-width: 760px;
   display: inline-block;
   color: #fff;
   font-size: 25px;
@@ -136,10 +141,11 @@ canvas {
 #alphabet li {
   list-style: none;
   border: #7f0909;
+  border-width: 2px;
   display: inline-block;
   text-align: center;
-  padding-left: 6px;
-  padding-right: 6px;
+  padding-left: 12px;
+  padding-right: 12px;
   border-style: groove;
   border-color: #ffc500;
    }
@@ -149,16 +155,14 @@ canvas {
   color: #fff;
 }
 
-@media (max-width: 767px) {
-  #alphabet {
-    min-width: 900px;
-      }
-}
+
 
 /************ MY WORDS ******************/
 #my-word {
+  margin: 0;
   display: block;
-  display: block;
+  padding: 0;
+  display:block;
 }
 
 #my-word li {
@@ -167,16 +171,18 @@ canvas {
   margin: 0;
   display: inline-block;
   padding: 0 10px;
-  font-size: 1.6em;
+  font-size:1.6em;
 }
 
+
 .active {
-  opacity: 0.4;
-  filter: alpha(opacity=40);
-  -moz-transition: all 1s ease-in;
-  -moz-transition: all 0.3s ease-in-out;
-  -webkit-transition: all 0.3s ease-in-out;
-  cursor: default;
+  @include opacity;
+  cursor:default;
+    
+  &:hover{
+      @include fade;
+      @include opacity;
+    }
 }
 
 .active:hover {

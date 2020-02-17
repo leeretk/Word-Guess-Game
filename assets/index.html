@@ -11,59 +11,54 @@
 </head>
 
 <header>
-    <img src="images/kindpng_1342906.jpg\kindpng_1342906.jpg" alt="Harry Potter">
+    <img src="images/kindpng_1342906.jpg" alt="Harry Potter">
     <h1>Harry Potter Hangman</h1>
 </header>
 
+
+<!-- #1 - Build Variables-->
+<!-- #2 - Get Elements (document.getElementId) 
+    Lives, Wins, Losses, Clues, Categories, etc.-->
+<!-- #3 - Create Alphabet function -->
+<!-- #4 - Create Category function -->
+<!-- #5 - Create Guesses -->
+<!-- #5 - Create Clue function -->
+
+
 <body>
     <div>
+        <script type="text/javascript" src="javascript/game.js"></script>
+        <div class="alphabetNotice">
+            Use the alphabet below to guess the word, or click hint to get a clue.
+        </div>
+        <div id="alphabet">
+            <p id="alphabet li"></p>
+        </div>
         <div class="wrapper">
+            <div id="buttons"></div>
+            
+            <p id="catagoryName">Category - </p>
 
-            <!-- #1 - Build Variables-->
-            <!-- #2 - Get Elements-->
-            <!-- #3 - Build Alphabet-->
-            <!-- #4 - Build Categories-->
-
-            <div class="alphabetNotice">
-                Use the alphabet below to guess the word, or click hint to get a clue.
-            </div>
-
-            <div id="buttons"></div>         
-
-            <div id="alphabet">
-                <p id="alphabet li"></p>
-            </div>
-
-            <!-- #1 - build the Category-->
-
-            <div id="categories" >
-             </div>
-
-            <div>
-                <p class="mylives"> My Lives - </p>
-            </div>
-
-            <div>
+            <div id="hold">
                 <p id="clue" class="clueFormat">Clue - </p>
             </div>
 
+            <br>
+            <br>
             <canvas id="stickman">This Text will show if the Browser does NOT support HTML5 Canvas tag
             </canvas>
+            <br>
+            <br>
+            <p class="mylives"> My Lives - |</p>
 
             <div class="buttonContainer">
                 <button id="hint">Hint</button>
                 <button id="reset">Play again</button>
             </div>
-
-            <div>
-                <p class="myWins"> My Wins - | </p>
-                <p class="myLosses"> My Losses - | </p>
-            </div>
-            <script type="text/javascript" src="javascript/game.js"></script>
+            
+            
+                        </script>
         </div>
-
-        
-
     </div>
 
 </body>
