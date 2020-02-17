@@ -183,10 +183,10 @@ window.onload = function () {
     //**********************PLAY THE GAME ************************    
     play = function () {
         categories = [
-            ["Harry", "Dobby", "Dumbledore", "Snape", "Sirius", "Ron", "Hermione", "Lupin"],
-            ["Keeper", "Bludger", "Chaser", "Seeker", "Snitch", "Quidditch"],
-            ["Slytherin", "hufflepuff", "gryffindor", "Ravenclaw"],
-            ["Sorcerers Stone", "Chamber of Secrets", "Prizoner of Azkaban", "Goblet of Fire", "Order of the Phoenix", "Half-Blood Prince", "Deathly Hallows"]
+            ["Harry", "Dobby", "Dumbledore", "Snape", "Sirius", "Ron", "Hermione", "Lupin"],//8
+            ["Keeper", "Bludger", "Chaser", "Seeker", "Snitch", "Quidditch"],//6
+            ["Slytherin", "hufflepuff", "gryffindor", "Ravenclaw"],//4
+            ["Sorcerers Stone", "Chamber of Secrets", "Prizoner of Azkaban", "Goblet of Fire", "Order of the Phoenix", "Half-Blood Prince", "Deathly Hallows"]//7
         ];
         chosenCategory = categories[Math.floor(Math.random() * categories.length)];
         word = chosenCategory[Math.floor(Math.random() * chosenCategory.length)];
@@ -207,14 +207,14 @@ window.onload = function () {
 //**********************CLUES************************  //on click function for hints
     hint.onclick = function () {
         hints = [
-            ["scar", "elf", "powerful", "always", "uncle", "redhead", "smart", "Werewolf"],
-            ["Protects the goal", "Balls that attack", "quaffle","snitch", "Catch to win the game", "Game played by wizards"],
-            ["Salazar", "Helga", "Godric", "Rowena"],
-            ["Sorting Hat", "Fluffy", "Sirius Returns", "Tournament of Champions", "Delores Umbridge", "The Potions Diary", "War"]
+            ["Scar", "Elf", "Powerful Wizard", "Always", "Uncle", "Redhead", "Smart", "Werewolf"], //8
+            ["Protects the goal", "Balls that attack", "Quaffle", "Snitch", "Catch to win the game", "Game played by wizards"],//6
+            ["Salazar", "Helga", "Godric", "Rowena"],//4
+            ["Sorting Hat", "Fluffy", "Sirius Returns", "Tournament of Champions", "Delores Umbridge", "The Potions Diary", "Wizard War"]//7
         ];
         var catagoryIndex = categories.indexOf(chosenCategory);
         var hintIndex = chosenCategory.indexOf(word);
-        showClue.innerHTML = "Clue: - " +  hints [catagoryIndex][hintIndex];
+        showClue.innerHTML = "Clue:  -" +  hints [catagoryIndex][hintIndex];
       };
  
     //**********************RESET***********************    
