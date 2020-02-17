@@ -1,53 +1,4 @@
-/*--Class=CSS and ID=Javascript-->*/
-/* Mixin's */ 
-
-@mixin transition {
-  -webkit-transition: all 0.5s ease-in-out;
-  -moz-transition: all 0.5s ease-in-out;
-  transition: all 0.5s ease-in-out;
-}
-
-@mixin clear {
-  &:after {
-      content: "";
-      display: table;
-      clear: both;
-    }
-}
-
- @mixin box-size {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
- @mixin transition {
-  -webkit-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-}
-
-@mixin fade {
-  -moz-transition: all 1s ease-in;
-  -moz-transition:all 0.3s ease-in-out;
-  -webkit-transition:all 0.3s ease-in-out;
-}
-
-@mixin opacity {
-  opacity:0.4;
-  filter:alpha(opacity=40); 
-  @include fade;
-}
-
-@mixin corners ($radius) {
-  -moz-border-radius: $radius;
-  -webkit-border-radius: $radius;
-  border-radius: $radius; 
-  -khtml-border-radius: $radius; 
-}
-
 /************ IMAGES ******************/
-
 img {
   width: 150px;
   height: 150px;
@@ -72,7 +23,7 @@ h1, h2, h3 {
 }
 
 h1 {
-  font-size: 2.6em;
+  font-size: 100px;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
@@ -123,19 +74,14 @@ canvas {
 }
 
 /************ ALPHABET ### ID's ### ******************/
-@media (max-width: 900px) {
-  #alphabet {
-    min-width: 760px;
-      }
-}
 
 #alphabet {
   width: 30px;
   height: 30px;
-  min-width: 760px;
+  min-width: 960px;
   display: inline-block;
   color: #fff;
-  font-size: 25px;
+  font-size: 40px;
       }
 
 #alphabet li {
@@ -155,34 +101,22 @@ canvas {
   color: #fff;
 }
 
-
-
 /************ MY WORDS ******************/
 #my-word {
-  margin: 0;
   display: block;
-  padding: 0;
   display:block;
 }
 
 #my-word li {
   position: relative;
   list-style: none;
-  margin: 0;
   display: inline-block;
   padding: 0 10px;
   font-size:1.6em;
 }
 
-
 .active {
-  @include opacity;
   cursor:default;
-    
-  &:hover{
-      @include fade;
-      @include opacity;
-    }
 }
 
 .active:hover {
@@ -208,7 +142,7 @@ button {
   border: solid 2px #fff;
   text-decoration: none;
   cursor: pointer;
-  font-size: 1.2em;
+  font-size: 30px;
   padding: 25px 12px;
   width: 200px;
   margin: 10px;

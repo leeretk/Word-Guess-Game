@@ -6,7 +6,7 @@ window.onload = function () {
 //**********************SET VARIABLES************************
 
     var alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-    
+
     var categories;         // Array of topics
     var chosenCategory;     // Selected catagory
     var getHint ;          // Word getHint
@@ -29,8 +29,10 @@ window.onload = function () {
 //**********************CREATE ALPHABET************************    
 
      var buttons = function () {
+
         myButtons = document.getElementById('buttons');
         letters = document.createElement('ul');
+
         for (var i = 0; i < alphabet.length; i++) {
             letters.id = 'alphabet';
             list = document.createElement('li');
@@ -51,7 +53,7 @@ window.onload = function () {
                 catagoryName.innerHTML = "The Chosen Category Is Quidditch";
             } else if (chosenCategory === categories[2]) {
                 catagoryName.innerHTML = "The Chosen Category Is Hogwartz Houses";
-            } else if (chosenCategory === categories[2]) {
+            } else if (chosenCategory === categories[3]) {
                 catagoryName.innerHTML = "The Chosen Category Is Books";
             }
         };
