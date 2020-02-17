@@ -18,31 +18,28 @@ window.onload = function () {
     var space;              // Number of spaces in word '-'
 
 
- // Get elements
- var showLives = document.getElementById("mylives");
- var showCatagory = document.getElementById("scatagory");
- var getHint = document.getElementById("hint");
- var showClue = document.getElementById("clue");
-
  
+  // Get elements
+  var showLives = document.getElementById("mylives");
+  var showCatagory = document.getElementById("scatagory");
+  var getHint = document.getElementById("hint");
+  var showClue = document.getElementById("clue");
 
-//**********************CREATE ALPHABET************************    
 
-     var buttons = function () {
-
-        myButtons = document.getElementById('buttons');
-        letters = document.createElement('ul');
-
-        for (var i = 0; i < alphabet.length; i++) {
-            letters.id = 'alphabet';
-            list = document.createElement('li');
-            list.id = 'letter';
-            list.innerHTML = alphabet[i];
-            check();
-            myButtons.appendChild(letters);
-            letters.appendChild(list);
-        }
-    };
+  // create alphabet ul
+  var buttons = function () {
+    myButtons = document.getElementById('buttons');
+    letters = document.createElement('ul');
+    for (var i = 0; i < alphabet.length; i++) {
+      letters.id = 'alphabet';
+      list = document.createElement('li');
+      list.id = 'letter';
+      list.innerHTML = alphabet[i];
+      check();
+      myButtons.appendChild(letters);
+      letters.appendChild(list);
+    }
+  }
 
 //**********************CHOOSE CATEGORY************************    
 
@@ -58,131 +55,139 @@ window.onload = function () {
             }
         };
 
-//**********************CREATE GUESSES (LIST UL) ************************       
-
-    result = function () {
-        wordHolder = document.getElementById('hold');
-        correct = document.createElement('ul');
-        for (var i = 0; i < word.length; i++) {
-            correct.setAttribute('id', 'my-word');
-            guess = document.createElement('li');
-            guess.setAttribute('class', 'guess');
-            if (word[i] === "-") {
-                guess.innerHTML = "-";
-                space = 1;
-            } else {
-                guess.innerHTML = "_";
-            }
-            guesses.push(guess);
-            wordHolder.appendChild(correct);
-            correct.appendChild(guess);
-        }
-    };
-
-    //**********************LIVES************************
+  // Create geusses ul
+  result = function () {
+    wordHolder = document.getElementById('hold');
+    correct = document.createElement('ul');
+    for (var i = 0; i < word.length; i++) {
+      correct.setAttribute('id', 'my-word');
+      guess = document.createElement('li');
+      guess.setAttribute('class', 'guess');
+      if (word[i] === "-") {
+        guess.innerHTML = "-";
+        space = 1;
+      } else {
+        guess.innerHTML = "_";
+      }
+      geusses.push(guess);
+      wordHolder.appendChild(correct);
+      correct.appendChild(guess);
+    }
+  }
   
-     // Show lives
+  // Show lives
    comments = function () {
     showLives.innerHTML = "You have " + lives + " lives";
     if (lives < 1) {
       showLives.innerHTML = "Game Over";
     }
-    for (var i = 0; i < guesses.length; i++) {
-      if (counter + space === guesses.length) {
+    for (var i = 0; i < geusses.length; i++) {
+      if (counter + space === geusses.length) {
         showLives.innerHTML = "You Win!";
       }
     }
+  }
+
+      // Animate man
+  var animate = function () {
+    var drawMe = lives ;
+    drawArray[drawMe]();
+  }
+
+  
+   // Hangman
+  canvas =  function(){
+
+    myStickman = document.getElementById("stickman");
+    context = myStickman.getContext('2d');
+    context.beginPath();
+    context.strokeStyle = "#fff";
+    context.lineWidth = 2;
   };
+  
+    head = function(){
+      myStickman = document.getElementById("stickman");
+      context = myStickman.getContext('2d');
+      context.beginPath();
+      context.arc(60, 25, 10, 0, Math.PI*2, true);
+      context.stroke();
+    }
+    
+  draw = function($pathFromx, $pathFromy, $pathTox, $pathToy) {
+    
+    context.moveTo($pathFromx, $pathFromy);
+    context.lineTo($pathTox, $pathToy);
+    context.stroke(); 
+}
 
-   //**********************HANGMAN************************      
+   frame1 = function() {
+     draw (0, 150, 150, 150);
+   };
+   
+   frame2 = function() {
+     draw (10, 0, 10, 600);
+   };
+  
+   frame3 = function() {
+     draw (0, 5, 70, 5);
+   };
+  
+   frame4 = function() {
+     draw (60, 5, 60, 15);
+   };
+  
+   torso = function() {
+     draw (60, 36, 60, 70);
+   };
+  
+   rightArm = function() {
+     draw (60, 46, 100, 50);
+   };
+  
+   leftArm = function() {
+     draw (60, 46, 20, 50);
+   };
+  
+   rightLeg = function() {
+     draw (60, 70, 100, 100);
+   };
+  
+   leftLeg = function() {
+     draw (60, 70, 20, 100);
+   };
+  
+  drawArray = [rightLeg, leftLeg, rightArm, leftArm,  torso,  head, frame4, frame3, frame2, frame1]; 
 
-    // Animate man
-    var animate = function () {
-        var drawMe = lives;
-        drawArray[drawMe]();
-    };
-
-    // Hangman
-    canvas = function () {
-        myStickman = document.getElementById("stickman");
-        context = myStickman.getContext('2d');
-        context.beginPath();
-        context.strokeStyle = "#fff";
-        context.lineWidth = 2;
-    };
-    head = function () {
-        myStickman = document.getElementById("stickman");
-        context = myStickman.getContext('2d');
-        context.beginPath();
-        context.arc(60, 25, 10, 0, Math.PI * 2, true);
-        context.stroke();
-    };
-    draw = function ($pathFromx, $pathFromy, $pathTox, $pathToy) {
-        context.moveTo($pathFromx, $pathFromy);
-        context.lineTo($pathTox, $pathToy);
-        context.stroke();
-    };
-    frame1 = function () {
-        draw(0, 150, 150, 150);
-    };
-    frame2 = function () {
-        draw(10, 0, 10, 600);
-    };
-    frame3 = function () {
-        draw(0, 5, 70, 5);
-    };
-    frame4 = function () {
-        draw(60, 5, 60, 15);
-    };
-    torso = function () {
-        draw(60, 36, 60, 70);
-    };
-    rightArm = function () {
-        draw(60, 46, 100, 50);
-    };
-    leftArm = function () {
-        draw(60, 46, 20, 50);
-    };
-    rightLeg = function () {
-        draw(60, 70, 100, 100);
-    };
-    leftLeg = function () {
-        draw(60, 70, 20, 100);
-    };
-    drawArray = [rightLeg, leftLeg, rightArm, leftArm, torso, head, frame4, frame3, frame2, frame1];
-
-    // OnClick Function
-    check = function () {
-        list.onclick = function () {
-            var guess = (this.innerHTML);
-            this.setAttribute("class", "active");
-            this.onclick = null;
-            for (var i = 0; i < word.length; i++) {
-                if (word[i] === guess) {
-                    guesses[i].innerHTML = guess;
-                    counter += 1;
-                }
-            }
-            var j = (word.indexOf(guess));
-            if (j === -1) {
-                lives -= 1;
-                comments();
-                animate();
-            } else {
-                comments();
-            }
-        };
-    };
-
+  // OnClick Function
+   check = function () {
+    list.onclick = function () {
+      var geuss = (this.innerHTML);
+      this.setAttribute("class", "active");
+      this.onclick = null;
+      for (var i = 0; i < word.length; i++) {
+        if (word[i] === geuss) {
+          geusses[i].innerHTML = geuss;
+          counter += 1;
+        } 
+      }
+      var j = (word.indexOf(geuss));
+      if (j === -1) {
+        lives -= 1;
+        comments();
+        animate();
+      } else {
+        comments();
+      }
+    }
+  }
+      
     //**********************PLAY THE GAME ************************    
-
-    // Play
     play = function () {
         categories = [
-            ["harry", "dobby", "dumbledore", "snape", "sirius", "ron", "hermione", "lupin", "wizards"],
+            ["harry", "dobby", "dumbledore", "snape", "sirius", "ron", "hermione", "lupin"],
             ["keeper", "bludger", "chaser", "seeker", "snitch", "quidditch"],
-            ["slytherin", "hufflepuff", "gryffindor", "ravenclaw", "hogwarts houses"],
-            ["sorcerers stone", "chamber of secrets", "prizoner of Azkaban", "goblet of fire", "order of the phoenix", "half-blood prince", "deathly hallows"],
+            ["slytherin", "hufflepuff", "gryffindor", "ravenclaw"],
+            ["sorcerers stone", "chamber of secrets", "prizoner of Azkaban", "goblet of fire", "order of the phoenix", "half-blood prince", "deathly hallows"]
         ];
         chosenCategory = categories[Math.floor(Math.random() * categories.length)];
         word = chosenCategory[Math.floor(Math.random() * chosenCategory.length)];
@@ -197,37 +202,31 @@ window.onload = function () {
         comments();
         selectCat();
         canvas();
-    };
+    }
   play();
 
-
-//**********************CLUES************************
-
-    //on click function for hints
-
+//**********************CLUES************************  //on click function for hints
     hint.onclick = function () {
-
         hints = [
-            ["Has a scar", "Protects Harry", "Most Powerful Wizard", "Always", "Transfiguration", "Harry's friend", "The Smart One", "Werewolf"],
+            ["Has a scar", "Protects Harry", "Most Powerful Wizard", "Always", "uncle", "red head", "The Smart One", "Werewolf"],
             ["Protects the goal", "Balls that attack", "Goes after the snitch", "Catch to win the game", "Game played by wizards"],
-            ["Salazar", "Helga", "Godric", "Rowena", "There are Four"],
+            ["Salazar", "Helga", "Godric", "Rowena"],
             ["Sorting Hat", "Fluffy", "Sirius Returns", "Tournament of Champions", "Delores Umbridge", "The Potions Diary", "War"]
         ];
-
         var catagoryIndex = categories.indexOf(chosenCategory);
         var hintIndex = chosenCategory.indexOf(word);
-
-        showClue.innerHTML = "Clue: - " + hints[catagoryIndex][hintIndex];
-    };
+        showClue.innerHTML = "Clue: - " +  hints [catagoryIndex][hintIndex];
+      };
 
  
     //**********************RESET***********************    
+   // Reset
 
-    document.getElementById('reset').onclick = function () {
-        correct.parentNode.removeChild(correct);
-        letters.parentNode.removeChild(letters);
-        showClue.innerHTML = "";
-        context.clearRect(0, 0, 400, 400);
-        play();
-    };
-};
+  document.getElementById('reset').onclick = function() {
+    correct.parentNode.removeChild(correct);
+    letters.parentNode.removeChild(letters);
+    showClue.innerHTML = "";
+    context.clearRect(0, 0, 400, 400);
+    play();
+  }
+}

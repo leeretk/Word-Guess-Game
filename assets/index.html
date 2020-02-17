@@ -27,37 +27,30 @@
 
 <body>
     <div>
-        <script type="text/javascript" src="javascript/game.js"></script>
+
         <div class="alphabetNotice">
             Use the alphabet below to guess the word, or click hint to get a clue.
         </div>
+        
         <div id="alphabet">
             <p id="alphabet li"></p>
         </div>
+        
         <div class="wrapper">
-            <div id="buttons"></div>
-            
-            <p id="catagoryName">Category - </p>
-
+            <div id="buttons">
+            </div>  
+            <p id="catagoryName"></p>
             <div id="hold">
-                <p id="clue" class="clueFormat">Clue - </p>
             </div>
-
-            <br>
-            <br>
-            <canvas id="stickman">This Text will show if the Browser does NOT support HTML5 Canvas tag
-            </canvas>
-            <br>
-            <br>
-            <p class="mylives"> My Lives - |</p>
-
-            <div class="buttonContainer">
-                <button id="hint">Hint</button>
-                <button id="reset">Play again</button>
+            <p id="mylives"></p>
+            <p id="clue">Clue -</p>  
+             <canvas id="stickman">This Text will show if the Browser does NOT support HTML5 Canvas tag</canvas>
+            <div class="container">
+              <button id="hint">Hint</button>
+              <button id="reset">Play again</button>
             </div>
-            
-            
-                        </script>
+        </div>
+            <script type="text/javascript" src="javascript/game.js"></script>
         </div>
     </div>
 
