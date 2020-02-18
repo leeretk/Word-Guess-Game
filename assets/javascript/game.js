@@ -187,19 +187,16 @@ window.onload = function () {
   playGame = function () {
 
     categories = [
-      ["HARRY", "DOBBY", "DUMBLEDORE", "SNAPE", "SIRIUS", "RON", "Hermione", "LUPIN"],//8
+      ["HARRY", "DOBBY", "DUMBLEDORE", "SNAPE", "SIRIUS", "RON", "HERMIONE", "LUPIN"],//8
       ["KEEPER", "BLUDGET", "CHASER", "SEEKER", "SNITCH", "QUIDITTCH"],//6
       ["SLYTHERIN", "HUFFLEPUFF", "GRYFFINDOR", "RAVENCLAW"],//4
       ["SORCERERS STONE", "CHAMBER OF SECRETS", "PRIZONER OF AZKABAN", "GOBLET OF FIRE", "ORDER OF THE PHOENIX", "HALF BLOOD PRINCE", "DEATHLY HALLOWS"]//7
-    ];
-    
+    ];  
     chosenCategory = categories[Math.floor(Math.random() * categories.length)];
     word = chosenCategory[Math.floor(Math.random() * chosenCategory.length)];
     word = word.replace(/\s/g, "-");
-
     console.log(word);
-    console.log(guessResult)
-    
+    console.log(guessResult);
     buttons();
     guesses = [];
     lives = 10;
@@ -209,7 +206,7 @@ window.onload = function () {
     showLives();
     selectCategory();
     canvas();
-  }
+  };
   playGame();
 
   //**********************CLUES************************  //on click function for hints
@@ -218,7 +215,7 @@ window.onload = function () {
       ["Scar", "Elf", "Powerful Wizard", "Always", "Uncle", "Redhead", "Smart", "Werewolf"], //8
       ["Protects The Goal", "Balls That Attack", "Quaffle", "Snitch", "Catch It ToWin", "Game Played By Wizards"],//6
       ["Salazar", "Helga", "Godric", "Rowena"],//4
-      ["SortingHat", "Fluffy", "Sirius Returns", "Tournament of Champions", "Delores Umbridge", "The Potions Diary", "Wizard War"]//7
+      ["Sorting Hat", "Fluffy", "Sirius Returns", "Tournament of Champions", "Delores Umbridge", "The Potions Diary", "Wizard War"],//7
     ];
     var categoryIndex = categories.indexOf(chosenCategory);
     var hintIndex = chosenCategory.indexOf(word);
@@ -227,7 +224,7 @@ window.onload = function () {
 
 
   //**********************RESET***********************    
-  // Reset
+// This function is run whenever the user presses Play Again key.  // Reset
 
   document.getElementById('reset').onclick = function () {
     correct.parentNode.removeChild(correct);
@@ -235,5 +232,62 @@ window.onload = function () {
     showClue.innerHTML = "";
     context.clearRect(0, 0, 400, 400);
     playGame();
+  };
+}
+
+// This function is run whenever the user presses Play Again key.
+
+// Show wins
+
+var getLives.innerHTML =  "Game Over!"
+
+var getLives.innerHTML =  "You Win!"
+
+console.log()
+
+showWins = function () {
+  getLives.innerHTML = "You have " + lives + " lives";
+  
+  if (lives < 1) {
+    getLives.innerHTML = "Game Over!";
+  }
+  for (var i = 0; i < guesses.length; i++) {
+    if (counter + space === guesses.length) {
+      getLives.innerHTML = "You Win!";
+    }
   }
 }
+
+
+
+//variable for each win and loss outcome.
+ 
+  var gameOutcomes = ["win", "lose"];
+  console.log(gameOutcomes[0]);
+  console.log(gameOutcomes[1]);
+
+  var userWins = 0;   //if lives = 0 you lose
+  var userLoses = 0;  //if lives > 0 you win
+
+
+var w = gameOutcomes[Math.floor(Math.userGuess() * gameOutcomes.length)];
+
+console.log("this is the user guess  " + userGuess)
+console.log("this is the computer guess  " + computerGuess)
+
+if (gameOutcomes == "win") {
+  console.log("you win");
+  userWins++;
+  console.log(" wins: " + userWins + " loses: " + userLoses);
+}
+
+ else {
+  console.log("you lose");
+  userLoses++
+  console.log(" wins: " + userWins + " loses: " + userLoses);
+}
+showWins();
+showLoses();
+
+};
+
