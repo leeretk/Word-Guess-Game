@@ -26,7 +26,7 @@ window.onload = function () {
   var buttons = function () {
     myButtons = document.getElementById('buttons');
     letters = document.createElement('ul');
-    for (var i = 0; i < alphabet.length; i++) {  
+    for (var i = 0; i < alphabet.length; i++) {
       letters.id = 'alphabet';
       list = document.createElement('li');
       list.id = 'letter';
@@ -71,6 +71,7 @@ window.onload = function () {
       guesses.push(guess);
       wordHolder.appendChild(correct);
       correct.appendChild(guess);
+      console.log(guess);
     }
   }
 
@@ -79,15 +80,17 @@ window.onload = function () {
     getLives.innerHTML = "You have " + lives + " lives";
     if (lives < 1) {
       getLives.innerHTML = "Game Over!";
+      console.log(showLives);
     }
     for (var i = 0; i < guesses.length; i++) {
       if (counter + space === guesses.length) {
         getLives.innerHTML = "You Win!";
+        console.log(showLives);
       }
     }
   }
 
- ////////////////////// ANIMATION //////////////////////////////
+  ////////////////////// ANIMATION //////////////////////////////
 
 
   // Animate man
@@ -191,7 +194,7 @@ window.onload = function () {
       ["KEEPER", "BLUDGET", "CHASER", "SEEKER", "SNITCH", "QUIDITTCH"],//6
       ["SLYTHERIN", "HUFFLEPUFF", "GRYFFINDOR", "RAVENCLAW"],//4
       ["SORCERERS STONE", "CHAMBER OF SECRETS", "PRIZONER OF AZKABAN", "GOBLET OF FIRE", "ORDER OF THE PHOENIX", "HALF BLOOD PRINCE", "DEATHLY HALLOWS"]//7
-    ];  
+    ];
     chosenCategory = categories[Math.floor(Math.random() * categories.length)];
     word = chosenCategory[Math.floor(Math.random() * chosenCategory.length)];
     word = word.replace(/\s/g, "-");
@@ -219,12 +222,12 @@ window.onload = function () {
     ];
     var categoryIndex = categories.indexOf(chosenCategory);
     var hintIndex = chosenCategory.indexOf(word);
-    showClue.innerHTML = "Clue: " + hints [categoryIndex][hintIndex];
+    showClue.innerHTML = "Clue: " + hints[categoryIndex][hintIndex];
   };
 
 
   //**********************RESET***********************    
-// This function is run whenever the user presses Play Again key.  // Reset
+  // This function is run whenever the user presses Play Again key.  // Reset
 
   document.getElementById('reset').onclick = function () {
     correct.parentNode.removeChild(correct);
@@ -235,59 +238,17 @@ window.onload = function () {
   };
 }
 
-// This function is run whenever the user presses Play Again key.
+//**********************WINS & LOSSES ***********************    
 
-// Show wins
-
-var getLives.innerHTML =  "Game Over!"
-
-var getLives.innerHTML =  "You Win!"
-
-console.log()
+var wins = 0;
+var loses = 0;
+var showLives;
+var wins;
 
 showWins = function () {
-  getLives.innerHTML = "You have " + lives + " lives";
-  
-  if (lives < 1) {
-    getLives.innerHTML = "Game Over!";
-  }
-  for (var i = 0; i < guesses.length; i++) {
-    if (counter + space === guesses.length) {
-      getLives.innerHTML = "You Win!";
-    }
-  }
+  wins = "You have " + wins + " wins";
+  if (wins == "You Win!") { 
+    (document.getElementById(showLives).innerHTML == "You Win!");
+  for (var i = 0; i < 0; i++); 
+  };
 }
-
-
-
-//variable for each win and loss outcome.
- 
-  var gameOutcomes = ["win", "lose"];
-  console.log(gameOutcomes[0]);
-  console.log(gameOutcomes[1]);
-
-  var userWins = 0;   //if lives = 0 you lose
-  var userLoses = 0;  //if lives > 0 you win
-
-
-var w = gameOutcomes[Math.floor(Math.userGuess() * gameOutcomes.length)];
-
-console.log("this is the user guess  " + userGuess)
-console.log("this is the computer guess  " + computerGuess)
-
-if (gameOutcomes == "win") {
-  console.log("you win");
-  userWins++;
-  console.log(" wins: " + userWins + " loses: " + userLoses);
-}
-
- else {
-  console.log("you lose");
-  userLoses++
-  console.log(" wins: " + userWins + " loses: " + userLoses);
-}
-showWins();
-showLoses();
-
-};
-
