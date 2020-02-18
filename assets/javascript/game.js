@@ -55,6 +55,8 @@ window.onload = function () {
   guessResult = function () {
     wordHolder = document.getElementById('hold');
     correct = document.createElement('ul');
+    console.log(correct)
+    console.log(wordHolder)
 
     for (var i = 0; i < word.length; i++) {
       correct.setAttribute('id', 'my-word');
@@ -85,8 +87,7 @@ window.onload = function () {
     }
   }
 
- 
-//////////////////////////////////////////////////////// ANIMATION //////////////////////////////
+ ////////////////////// ANIMATION //////////////////////////////
 
 
   // Animate man
@@ -186,16 +187,19 @@ window.onload = function () {
   playGame = function () {
 
     categories = [
-      ["Harry", "Dobby", "Dumbledore", "Snape", "Sirius", "Ron", "Hermione", "Lupin"],//8
-      ["Keeper", "Bludger", "Chaser", "Seeker", "Snitch", "Quidditch"],//6
-      ["Slytherin", "Hufflepuff", "Gryffindor", "Ravenclaw"],//4
-      ["Sorcerers Stone", "Chamber Of Secrets", "Prizoner Of Azkaban", "Goblet Of Fire", "Order Of ThePhoenix", "Half Blood Prince", "Deathly Hallows"]//7
+      ["HARRY", "DOBBY", "DUMBLEDORE", "SNAPE", "SIRIUS", "RON", "Hermione", "LUPIN"],//8
+      ["KEEPER", "BLUDGET", "CHASER", "SEEKER", "SNITCH", "QUIDITTCH"],//6
+      ["SLYTHERIN", "HUFFLEPUFF", "GRYFFINDOR", "RAVENCLAW"],//4
+      ["SORCERERS STONE", "CHAMBER OF SECRETS", "PRIZONER OF AZKABAN", "GOBLET OF FIRE", "ORDER OF THE PHOENIX", "HALF BLOOD PRINCE", "DEATHLY HALLOWS"]//7
     ];
     
     chosenCategory = categories[Math.floor(Math.random() * categories.length)];
     word = chosenCategory[Math.floor(Math.random() * chosenCategory.length)];
     word = word.replace(/\s/g, "-");
+
     console.log(word);
+    console.log(guessResult)
+    
     buttons();
     guesses = [];
     lives = 10;
@@ -233,5 +237,3 @@ window.onload = function () {
     playGame();
   }
 }
-
-
