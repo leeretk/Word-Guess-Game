@@ -14,25 +14,18 @@ window.onload = function () {
   //guess       --> guesses [] --> userGuess --> correct
   //class       --> 
   //word        --> space     --My-Word  -->hold        --> wordHolder
-  //result      --> 
-  //comments
-  //selectCat
-  //canvas
-  //id
 
   var alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 
-  var categories;       // Array of topics
-  var word;             // Selected word
-  var lives;            // Lives
-  var counter;          // Count correct guesses
-  var space;            // Number of spaces in word '-'
-  var hint;
-
-  // Selection
-  var guess;             // guess
-  var guesses = [];      // Stored guesses
-  var chosenCategory;    // Selected category
+  var categories;         // Array of topics
+  var chosenCategory;     // Selected category
+  var word;               // Selected word
+  var getHint;            // Word getHint
+  var lives;              // Lives
+  var counter;            // Count correct guesses
+  var space;              // Number of spaces in word '-'
+  var guess;              // guess
+  var guesses = [];       // Stored guesses  
 
   // Get elements
   var getCategory = document.getElementById("category");
@@ -42,28 +35,22 @@ window.onload = function () {
 
   // create alphabet ul
   var buttons = function () {
-      myButtons = document.getElementById('buttons');
-      letters = document.createElement('ul');
-
+    myButtons = document.getElementById('buttons');
+    letters = document.createElement('ul');
     for (var i = 0; i < alphabet.length; i++) {
-
       letters.id = 'alphabet';
-
       list = document.createElement('li');
       list.id = 'letter';
-
       list.innerHTML = alphabet[i];
       check();
-
       myButtons.appendChild(letters);
-
       letters.appendChild(list);
     }
   }
 
   //**********************CHOOSE CATEGORY************************    
 
-  var selectCat = function () {
+  var chooseCategory = function () {
     if (chosenCategory === categories[0]) {
       categoryName.innerHTML = "The Chosen Category Is: Wizard";
     } else if (chosenCategory === categories[1]) {
@@ -76,38 +63,27 @@ window.onload = function () {
   };
 
   // Create guesses ul
-  result = function () {
-
+  guessResult = function () {
     wordHolder = document.getElementById('hold');
-
     correct = document.createElement('ul');
-
     for (var i = 0; i < word.length; i++) {
-
       correct.setAttribute('id', 'my-word');
-
       guess = document.createElement('li');
-
       guess.setAttribute('class', 'guess');
-
       if (word[i] === "-") {
         guess.innerHTML = "-";
         space = 1;
-
       } else {
         guess.innerHTML = "_";
       }
-
       guesses.push(guess);
-
       wordHolder.appendChild(correct);
-
       correct.appendChild(guess);
     }
   }
 
   // Show lives  
-    comments = function () {
+  showLives = function () {
     getLives.innerHTML = "You have " + lives + " lives";
     if (lives < 1) {
       getLives.innerHTML = "Game Over";
@@ -289,56 +265,49 @@ window.onload = function () {
       var j = (word.indexOf(guess));
       if (j === -1) {
         lives -= 1;
-        comments();
+        showLives();
         animate();
       } else {
-        comments();
+        showLives();
       }
     }
   }
 
   //**********************PLAY THE GAME ************************    
-  play = function () {
+  playGame = function () {
     categories = [
       ["Harry", "Dobby", "Dumbledore", "Snape", "Sirius", "Ron", "Hermione", "Lupin"],//8
       ["Keeper", "Bludger", "Chaser", "Seeker", "Snitch", "Quidditch"],//6
       ["Slytherin", "Hufflepuff", "Gryffindor", "Ravenclaw"],//4
       ["SorcerersStone", "ChamberOfSecrets", "PrizonerOfAzkaban", "GobletOfFire", "OrderOfThePhoenix", "HalfBloodPrince", "DeathlyHallows"]//7
     ];
-
     chosenCategory = categories[Math.floor(Math.random() * categories.length)];
-
     word = chosenCategory[Math.floor(Math.random() * chosenCategory.length)];
     word = word.replace(/\s/g, "-");
-
     console.log(word);
     buttons();
     guesses = [];
     lives = 10;
     counter = 0;
     space = 0;
-    result();
-    comments();
-    selectCat();
+    guessResult();
+    showLives();
+    chooseCategory();
     canvas();
   }
-  play();
+  playGame();
 
   //**********************CLUES************************  //on click function for hints
   hint.onclick = function () {
-
     hints = [
       ["Scar", "Elf", "Powerful Wizard", "Always", "Uncle", "Redhead", "Smart", "Werewolf"], //8
       ["ProtectsTheGoal", "BallsThatAttack", "Quaffle", "Snitch", "CatchItToWin", "GamePlayedByWizards"],//6
       ["Salazar", "Helga", "Godric", "Rowena"],//4
       ["SortingHat", "Fluffy", "SiriusReturns", "TournamentofChampions", "DeloresUmbridge", "ThePotionsDiary", "Wizard War"]//7
     ];
-
     var categoryIndex = categories.indexOf(chosenCategory);
-
-    var hintIndex = chosenCategory.indexOf(word);
-
-    getClue.innerHTML = "Clue:  -" + hints[categoryIndex][hintIndex];
+    var hintsIndex = chosenCategory.indexOf(word);
+    getClue.innerHTML = "Clue: " + hints[categoryIndex][hintsIndex];
   };
 
   //**********************RESET***********************    
