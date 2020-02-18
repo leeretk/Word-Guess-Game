@@ -4,34 +4,28 @@ window.onload = function () {
 
   //**********************SET VARIABLES************************
 
-  //category    --> categories -->categories.indexOf(chosenCategory)  --> getCategory --> chosenCategory --> categoryName --> categoryIndex --> categoryIndex|hintIndex
-  //hint        --> hints       --> getHint   --> hintIndex (chosenWord)
-  //clue        --> getClue
-  //lives       --> getLives  --> myLives
-  //buttons     --> letters   --> myButtons
-  //list        --> li        --> list.id (letters)
-  //letters     --> list      --> letters.id (alphabet)
-  //guess       --> guesses [] --> userGuess --> correct
-  //class       --> 
-  //word        --> space     --My-Word  -->hold        --> wordHolder
-
   var alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-
   var categories;         // Array of topics
   var chosenCategory;     // Selected category
+  var getHint ;           // Word getHint
   var word;               // Selected word
-  var getHint;            // Word getHint
+  var guess;              // guess
+  var guesses = [];       // Stored guesses
   var lives;              // Lives
   var counter;            // Count correct guesses
   var space;              // Number of spaces in word '-'
-  var guess;              // guess
-  var guesses = [];       // Stored guesses  
+
+  var guessOutcome;       // guess
+  var userWins;           // Wins  
+  var userLoses;          //Losses
 
   // Get elements
+  var getLives = document.getElementById("mylives");
   var getCategory = document.getElementById("category");
   var getHint = document.getElementById("hint");
-  var getLives = document.getElementById("mylives");
   var getClue = document.getElementById("clue");
+  var getWins = document.getElementById("win");
+  var getLoses = document.getElementById("Lose");
 
   // create alphabet ul
   var buttons = function () {
@@ -95,88 +89,7 @@ window.onload = function () {
     }
   }
 
-  //////////////////////////////////WINS AND LOSSES //////////////////////////////
-
-  //variable for each win and loss outcome.
-
-  var userWins = 0;
-  var userLoses = 0;
-
-  //if lives = 0 you lose
-  //if lives > 0 you win
-
-
-  // This function is run whenever the user presses a key.
-  document.onkeyup = function (event) {
-
-    // Determines which OUTCOME WAS  was pressed. //user selects r, p, s 
-    var userGuess = event.key;
-
-    // Randomly chooses a choice from the options array. This is the Computer's guess. //computer selects r, p, s 
-    var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
-
-
-    console.log("this is the user guess  " + userGuess)
-    console.log("this is the computer guess  " + computerGuess)
-
-
-    if (userGuess == "r" && computerGuess == "s") {
-      console.log("you win");
-      userWins++;
-      console.log(" wins: " + userWins + " ties: " + userTies + " loses: " + userLoses);
-
-    }
-
-    else if (userGuess == "r" && computerGuess == "p") {
-      console.log("you lose");
-      userLoses++;
-      console.log(" wins: " + userWins + " ties: " + userTies + " loses: " + userLoses);
-    }
-
-    else if (userGuess == "r" && computerGuess == "r") {
-      console.log("you tie");
-      userTies++;
-      console.log(" wins: " + userWins + " ties: " + userTies + " loses: " + userLoses);
-    }
-
-    else if (userGuess == "s" && computerGuess == "s") {
-      console.log("you tie");
-      userTies++;
-      console.log(" wins: " + userWins + " ties: " + userTies + " loses: " + userLoses);
-    }
-
-    else if (userGuess == "s" && computerGuess == "p") {
-      console.log("you win");
-      userWins++;
-      console.log(" wins: " + userWins + " ties: " + userTies + " loses: " + userLoses);
-    }
-
-    else if (userGuess == "s" && computerGuess == "r") {
-      console.log("you lose");
-      userLoses++;
-      console.log(" wins: " + userWins + " ties: " + userTies + " loses: " + userLoses);
-
-    }
-
-    else if (userGuess == "p" && computerGuess == "s") {
-      console.log("you lose");
-      userLoses++;
-      console.log(" wins: " + userWins + " ties: " + userTies + " loses: " + userLoses);
-    }
-
-    else if (userGuess == "p" && computerGuess == "p") {
-      console.log("you tie");
-      userTies++;
-      console.log(" wins: " + userWins + " ties: " + userTies + " loses: " + userLoses);
-    }
-
-    else {
-      console.log("you win");
-      userWins++
-      console.log(" wins: " + userWins + " ties: " + userTies + " loses: " + userLoses);
-    }
-  };
-
+  
 
   //////////////////////////////////////////////////////// ANIMATION //////////////////////////////
 
@@ -309,6 +222,40 @@ window.onload = function () {
     var hintsIndex = chosenCategory.indexOf(word);
     getClue.innerHTML = "Clue: " + hints[categoryIndex][hintsIndex];
   };
+
+
+//////////////////////////////////WINS AND LOSSES //////////////////////////////
+
+var userWins = 0;   //if lives > 0 you win
+var userLoses = 0;  //if lives = 0 you lose
+
+showWins = function () {
+  getWins.innerHTML = "You have " + userWins + " wins";
+  
+  if (userWins < 1) {
+    userWins.innerHTML = "Game Over";
+  }
+  for (var i = 0; i < guesses.length; i++) {
+    if (counter + space === guesses.length) {
+      getLives.innerHTML = "You Win!";
+    }
+  }
+}
+  
+  console.log("this is the guess outcome " + guessOutcome)
+
+  if (guessOutcome == "Game Over") {
+    console.log("lose");
+    userLoses++;
+    console.log(" Lost: " + userLoses);
+  }
+
+  else if (guessOutcome == "win") {
+    console.log("win");
+    userWins++;
+    console.log(" wins: " + userWins);
+  }
+};
 
   //**********************RESET***********************    
   // Reset
