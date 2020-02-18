@@ -85,40 +85,7 @@ window.onload = function () {
     }
   }
 
- // Show Wins
-
- var getWins = document.getElementById("win");
- var getLoses = document.getElementById("lose");
-  
- var userWins = 0;   //if lives > 0 you win
- var userLosses = 0;  //if lives = 0 you lose
-  
-   winLossOutcome = function () {
-     getWins.innerHTML = "You have " + userWins + " wins";
-     if (userWins < 1) {
-       getLives.innerHTML = "Game Over!";
-     }
-     for (var i = 0; i < userWins.length; i++) {
-       if (counter + space === userWins.length) {
-         getLives.innerHTML = "You Win!";
-       }
-     }
-   }
-
-   console.log("this is the guess outcome " + guessOutcome)
  
-   if (guessResult == "Game Over!") {
-     console.log("lose");
-     userLoses++;
-     console.log(" Lost: " + userLoses);
-   }
-   else if (guessResult == "You Win!") {
-     console.log("win");
-     userWins++;
-     console.log(" wins: " + userWins);
-   }
- };
-
 //////////////////////////////////////////////////////// ANIMATION //////////////////////////////
 
 
@@ -254,6 +221,7 @@ window.onload = function () {
     showClue.innerHTML = "Clue: " + hints [categoryIndex][hintIndex];
   };
 
+
   //**********************RESET***********************    
   // Reset
 
@@ -265,3 +233,5 @@ window.onload = function () {
     playGame();
   }
 }
+
+
