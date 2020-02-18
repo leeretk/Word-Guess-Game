@@ -7,7 +7,7 @@ window.onload = function () {
   var alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
   var categories;         // Array of topics
   var chosenCategory;     // Selected category
-  var getHint ;           // Word getHint
+  var getHint;            // Word getHint
   var word;               // Selected word
   var guess;              // guess
   var guesses = [];       // Stored guesses
@@ -15,23 +15,18 @@ window.onload = function () {
   var counter;            // Count correct guesses
   var space;              // Number of spaces in word '-'
 
-  var guessOutcome;       // guess
-  var userWins;           // Wins  
-  var userLoses;          //Losses
-
   // Get elements
   var getLives = document.getElementById("mylives");
-  var getCategory = document.getElementById("category");
+  var getCatagory = document.getElementById("categories");
   var getHint = document.getElementById("hint");
   var getClue = document.getElementById("clue");
-  var getWins = document.getElementById("win");
-  var getLoses = document.getElementById("Lose");
 
   // create alphabet ul
   var buttons = function () {
     myButtons = document.getElementById('buttons');
     letters = document.createElement('ul');
-    for (var i = 0; i < alphabet.length; i++) {
+    
+    for (var i = 0; i < alphabet.length; i++) {  
       letters.id = 'alphabet';
       list = document.createElement('li');
       list.id = 'letter';
@@ -44,7 +39,7 @@ window.onload = function () {
 
   //**********************CHOOSE CATEGORY************************    
 
-  var chooseCategory = function () {
+  var selectCategory = function () {
     if (chosenCategory === categories[0]) {
       categoryName.innerHTML = "The Chosen Category Is: Wizard";
     } else if (chosenCategory === categories[1]) {
@@ -54,12 +49,13 @@ window.onload = function () {
     } else if (chosenCategory === categories[3]) {
       categoryName.innerHTML = "The Chosen Category Is: Books";
     }
-  };
+  }
 
-  // Create guesses ul
+  // Create guesses ul 
   guessResult = function () {
     wordHolder = document.getElementById('hold');
     correct = document.createElement('ul');
+
     for (var i = 0; i < word.length; i++) {
       correct.setAttribute('id', 'my-word');
       guess = document.createElement('li');
@@ -80,7 +76,7 @@ window.onload = function () {
   showLives = function () {
     getLives.innerHTML = "You have " + lives + " lives";
     if (lives < 1) {
-      getLives.innerHTML = "Game Over";
+      getLives.innerHTML = "Game Over!";
     }
     for (var i = 0; i < guesses.length; i++) {
       if (counter + space === guesses.length) {
@@ -88,8 +84,6 @@ window.onload = function () {
       }
     }
   }
-
-  
 
   //////////////////////////////////////////////////////// ANIMATION //////////////////////////////
 
@@ -143,6 +137,7 @@ window.onload = function () {
 
   torso = function () {
     draw(60, 36, 60, 70);
+
   };
 
   rightArm = function () {
@@ -205,7 +200,7 @@ window.onload = function () {
     space = 0;
     guessResult();
     showLives();
-    chooseCategory();
+    selectCategory();
     canvas();
   }
   playGame();
@@ -220,42 +215,9 @@ window.onload = function () {
     ];
     var categoryIndex = categories.indexOf(chosenCategory);
     var hintsIndex = chosenCategory.indexOf(word);
-    getClue.innerHTML = "Clue: " + hints[categoryIndex][hintsIndex];
+    getHint.innerHTML = "Clue: " + hints[categoryIndex][hintsIndex];
   };
 
-
-//////////////////////////////////WINS AND LOSSES //////////////////////////////
-
-var userWins = 0;   //if lives > 0 you win
-var userLoses = 0;  //if lives = 0 you lose
-
-showWins = function () {
-  getWins.innerHTML = "You have " + userWins + " wins";
-  
-  if (userWins < 1) {
-    userWins.innerHTML = "Game Over";
-  }
-  for (var i = 0; i < guesses.length; i++) {
-    if (counter + space === guesses.length) {
-      getLives.innerHTML = "You Win!";
-    }
-  }
-}
-  
-  console.log("this is the guess outcome " + guessOutcome)
-
-  if (guessOutcome == "Game Over") {
-    console.log("lose");
-    userLoses++;
-    console.log(" Lost: " + userLoses);
-  }
-
-  else if (guessOutcome == "win") {
-    console.log("win");
-    userWins++;
-    console.log(" wins: " + userWins);
-  }
-};
 
   //**********************RESET***********************    
   // Reset
@@ -263,8 +225,8 @@ showWins = function () {
   document.getElementById('reset').onclick = function () {
     correct.parentNode.removeChild(correct);
     letters.parentNode.removeChild(letters);
-    getClue.innerHTML = "";
+    getHint.innerHTML = "";
     context.clearRect(0, 0, 400, 400);
-    play();
+    playGame();
   }
 }
