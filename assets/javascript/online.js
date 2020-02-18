@@ -1,3 +1,5 @@
+
+
 window.onload = function () {
 
   var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
@@ -33,10 +35,10 @@ window.onload = function () {
       myButtons.appendChild(letters);
       letters.appendChild(list);
     }
-  }
-    
+  } 
   
-  // Select Catagory
+
+// Select Catagory
   var selectCat = function () {
     if (chosenCategory === categories[0]) {
       catagoryName.innerHTML = "The Chosen Category Is Premier League Football Teams";
@@ -190,7 +192,6 @@ window.onload = function () {
     word = word.replace(/\s/g, "-");
     console.log(word);
     buttons();
-
     geusses = [ ];
     lives = 10;
     counter = 0;

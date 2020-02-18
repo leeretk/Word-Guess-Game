@@ -2,9 +2,10 @@
 
 window.onload = function () {
 
-  //**********************SET VARIABLES************************
+  //**********************SET VARIABLES************************//
 
   var alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+
   var categories;         // Array of topics
   var chosenCategory;     // Selected category
   var getHint;            // Word getHint
@@ -19,13 +20,12 @@ window.onload = function () {
   var getLives = document.getElementById("mylives");
   var getCatagory = document.getElementById("categories");
   var getHint = document.getElementById("hint");
-  var getClue = document.getElementById("clue");
+  var showClue = document.getElementById("clue");
 
   // create alphabet ul
   var buttons = function () {
     myButtons = document.getElementById('buttons');
     letters = document.createElement('ul');
-    
     for (var i = 0; i < alphabet.length; i++) {  
       letters.id = 'alphabet';
       list = document.createElement('li');
@@ -183,12 +183,14 @@ window.onload = function () {
 
   //**********************PLAY THE GAME ************************    
   playGame = function () {
+
     categories = [
       ["Harry", "Dobby", "Dumbledore", "Snape", "Sirius", "Ron", "Hermione", "Lupin"],//8
       ["Keeper", "Bludger", "Chaser", "Seeker", "Snitch", "Quidditch"],//6
       ["Slytherin", "Hufflepuff", "Gryffindor", "Ravenclaw"],//4
-      ["SorcerersStone", "ChamberOfSecrets", "PrizonerOfAzkaban", "GobletOfFire", "OrderOfThePhoenix", "HalfBloodPrince", "DeathlyHallows"]//7
+      ["Sorcerers Stone", "Chamber Of Secrets", "Prizoner Of Azkaban", "Goblet Of Fire", "Order Of ThePhoenix", "Half Blood Prince", "Deathly Hallows"]//7
     ];
+    
     chosenCategory = categories[Math.floor(Math.random() * categories.length)];
     word = chosenCategory[Math.floor(Math.random() * chosenCategory.length)];
     word = word.replace(/\s/g, "-");
@@ -209,23 +211,22 @@ window.onload = function () {
   hint.onclick = function () {
     hints = [
       ["Scar", "Elf", "Powerful Wizard", "Always", "Uncle", "Redhead", "Smart", "Werewolf"], //8
-      ["ProtectsTheGoal", "BallsThatAttack", "Quaffle", "Snitch", "CatchItToWin", "GamePlayedByWizards"],//6
+      ["Protects The Goal", "Balls That Attack", "Quaffle", "Snitch", "Catch It ToWin", "Game Played By Wizards"],//6
       ["Salazar", "Helga", "Godric", "Rowena"],//4
-      ["SortingHat", "Fluffy", "SiriusReturns", "TournamentofChampions", "DeloresUmbridge", "ThePotionsDiary", "Wizard War"]//7
+      ["SortingHat", "Fluffy", "Sirius Returns", "Tournament of Champions", "Delores Umbridge", "The Potions Diary", "Wizard War"]//7
     ];
     var categoryIndex = categories.indexOf(chosenCategory);
-    var hintsIndex = chosenCategory.indexOf(word);
-    getHint.innerHTML = "Clue: " + hints[categoryIndex][hintsIndex];
+    var hintIndex = chosenCategory.indexOf(word);
+    showClue.innerHTML = "Clue: " + hints [categoryIndex][hintIndex];
   };
-
-
+  
   //**********************RESET***********************    
   // Reset
 
   document.getElementById('reset').onclick = function () {
     correct.parentNode.removeChild(correct);
     letters.parentNode.removeChild(letters);
-    getHint.innerHTML = "";
+    showClue.innerHTML = "";
     context.clearRect(0, 0, 400, 400);
     playGame();
   }
