@@ -4,7 +4,7 @@ This game is Harry Potter Hangman. The categories of words included are focused 
 
 If you get stuck you can click the hint button to obtain a clue.
 
-I added functions to calcaluate Wins and Loses.
+I added functions to calcaluate Wins and Loses but they are not working properly.  The very good news is they have stopped inteferring with the rest of the game.  Through an tremendous amount of trial and error, I think I know how to make it work now without disturbing the HTML and the way the game is supposed to work. 
 
 Things to remaining:
     3-After the user wins/loses the game should automatically choose another word and make the user play it.
