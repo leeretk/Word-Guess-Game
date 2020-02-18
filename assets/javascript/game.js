@@ -244,11 +244,20 @@ var wins = 0;
 var loses = 0;
 var showLives;
 var wins;
+var loses;
 
 showWins = function () {
-  wins = "You have " + wins + " wins";
-  if (wins == "You Win!") { 
-    (document.getElementById(showLives).innerHTML == "You Win!");
-  for (var i = 0; i < 0; i++); 
+  
+  if (showLives == "You Win!") { 
+    alert("You have " + wins + " wins");
+    for (var i = 0; i < 0; i++);
+       
   };
+  showLoses = function () {
+  
+    if (showLives == "Game Over!") { 
+      alert("You have " + loses + " wins");
+      for (var i = 0; i < 0; i++);
+             };
+}
 }
