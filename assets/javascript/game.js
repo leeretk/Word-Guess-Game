@@ -34,6 +34,8 @@ window.onload = function () {
       check();
       myButtons.appendChild(letters);
       letters.appendChild(list);
+      console.log(letters)
+      console.log(list);
     }
   }
 
@@ -48,6 +50,8 @@ window.onload = function () {
       categoryName.innerHTML = "The Chosen Category Is: Hogwartz Houses";
     } else if (chosenCategory === categories[3]) {
       categoryName.innerHTML = "The Chosen Category Is: Books";
+      console.log(categoryName);
+      console.log(catetories);
     }
   }
 
@@ -72,6 +76,7 @@ window.onload = function () {
       wordHolder.appendChild(correct);
       correct.appendChild(guess);
       console.log(guess);
+      console.log(correct);
           };
   }
 
@@ -91,6 +96,16 @@ window.onload = function () {
   }
 
 // Show Wins  
+
+var wins;
+var loses;
+
+showWins = function( {
+   if(mylives = "You Win!");
+  for (var i = 0; i < mylives.length; i++);
+    console.log(showWins);
+};
+}
 
 //var getLives = document.getElementById("mylives");
 
