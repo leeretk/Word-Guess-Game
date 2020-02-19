@@ -21,8 +21,6 @@ window.onload = function () {
   var getCatagory = document.getElementById("categories");
   var getHint = document.getElementById("hint");
   var showClue = document.getElementById("clue");
-  var getWins = document.getElementById("myWins");
-  var getLoses = document.getElementById("myLoses");
 
   // create alphabet ul
   var buttons = function () {
@@ -93,23 +91,27 @@ window.onload = function () {
   }
 
 // Show Wins  
-showWins = function () {
-  getWins.innerHTML = "You have " + wins + " wins";
-  if (wins < 1) {
-    getWins.innerHTML = "Game Over!";
-    console.log(showWins);
-  }
-  for (var i = 0; i < win.length; i++) {
-    if (counter + space === win.length) {
-      getWins.innerHTML = "You Win!";
-      console.log(showWins);       
-    };
-  };
-}
+
+//var getLives = document.getElementById("mylives");
+
+//var win = myLives.innerHTML = "You Win!";
+//var lose = myLives.innerHTML = "Game Over!";
 
 
-  ////////////////////// ANIMATION //////////////////////////////
+//showWins = function () {
 
+//    for (var i = 0; i < win.length; i++) {
+//      if (myLives.innerHTML == win.length) {   
+//        alert("You Win!");
+//      console.log(showWins);       
+ //   };
+  //};
+//}
+
+
+
+
+/////////////////////// ANIMATION //////////////////////////////
 
   // Animate man
   var animate = function () {
@@ -200,7 +202,7 @@ showWins = function () {
         if (word[i] === guess) {
           guesses[i].innerHTML = guess;
           counter += 1;
-        }
+        };
       }
     
       var j = (word.indexOf(guess));
@@ -213,7 +215,7 @@ showWins = function () {
         console.log(lives)
       }
 
-    }
+    };
   }
 
   //**********************PLAY THE GAME ************************    
@@ -266,3 +268,5 @@ showWins = function () {
     playGame();
   };
 }
+  //********************************************* 
+
