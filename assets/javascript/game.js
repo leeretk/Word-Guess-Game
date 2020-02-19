@@ -21,6 +21,8 @@ window.onload = function () {
   var getCatagory = document.getElementById("categories");
   var getHint = document.getElementById("hint");
   var showClue = document.getElementById("clue");
+  var getWins = document.getElementById("myWins");
+  var getLoses = document.getElementById("myLoses");
 
   // create alphabet ul
   var buttons = function () {
@@ -72,7 +74,7 @@ window.onload = function () {
       wordHolder.appendChild(correct);
       correct.appendChild(guess);
       console.log(guess);
-    }
+          };
   }
 
   // Show lives  
@@ -85,10 +87,26 @@ window.onload = function () {
     for (var i = 0; i < guesses.length; i++) {
       if (counter + space === guesses.length) {
         getLives.innerHTML = "You Win!";
-        console.log(showLives);
-      }
-    }
+        console.log(showLives);       
+      };
+    };
   }
+
+// Show Wins  
+showWins = function () {
+  getWins.innerHTML = "You have " + wins + " wins";
+  if (wins < 1) {
+    getWins.innerHTML = "Game Over!";
+    console.log(showWins);
+  }
+  for (var i = 0; i < win.length; i++) {
+    if (counter + space === win.length) {
+      getWins.innerHTML = "You Win!";
+      console.log(showWins);       
+    };
+  };
+}
+
 
   ////////////////////// ANIMATION //////////////////////////////
 
@@ -115,14 +133,21 @@ window.onload = function () {
     context.beginPath();
     context.arc(60, 25, 10, 0, Math.PI * 2, true);
     context.stroke();
-  }
+  };
+
+//Define a starting point in position (0,0), and an ending point in position (200,100). Then use the stroke() method to actually draw the line:
+//moveTo(x,y) - defines the starting point of the line
+//lineTo(x,y) - defines the ending point of the line
+//Define a circle with the arc() method. Then use the stroke() method to actually draw the circle:
 
   draw = function ($pathFromx, $pathFromy, $pathTox, $pathToy) {
 
     context.moveTo($pathFromx, $pathFromy);
     context.lineTo($pathTox, $pathToy);
     context.stroke();
-  }
+  };
+
+//fillRect(x,y,width,height)
 
   frame1 = function () {
     draw(0, 150, 150, 150);
@@ -142,7 +167,6 @@ window.onload = function () {
 
   torso = function () {
     draw(60, 36, 60, 70);
-
   };
 
   rightArm = function () {
@@ -165,16 +189,20 @@ window.onload = function () {
 
   // OnClick Function
   check = function () {
-    list.onclick = function () {
+    list.onclick = function () 
+    
+    {
       var guess = (this.innerHTML);
       this.setAttribute("class", "active");
       this.onclick = null;
+
       for (var i = 0; i < word.length; i++) {
         if (word[i] === guess) {
           guesses[i].innerHTML = guess;
           counter += 1;
         }
       }
+    
       var j = (word.indexOf(guess));
       if (j === -1) {
         lives -= 1;
@@ -182,7 +210,9 @@ window.onload = function () {
         animate();
       } else {
         showLives();
+        console.log(lives)
       }
+
     }
   }
 
@@ -191,7 +221,7 @@ window.onload = function () {
 
     categories = [
       ["HARRY", "DOBBY", "DUMBLEDORE", "SNAPE", "SIRIUS", "RON", "HERMIONE", "LUPIN"],//8
-      ["KEEPER", "BLUDGET", "CHASER", "SEEKER", "SNITCH", "QUIDITTCH"],//6
+      ["KEEPER", "BLUDGER", "CHASER", "SEEKER", "SNITCH", "QUIDDITCH"],//6
       ["SLYTHERIN", "HUFFLEPUFF", "GRYFFINDOR", "RAVENCLAW"],//4
       ["SORCERERS STONE", "CHAMBER OF SECRETS", "PRIZONER OF AZKABAN", "GOBLET OF FIRE", "ORDER OF THE PHOENIX", "HALF BLOOD PRINCE", "DEATHLY HALLOWS"]//7
     ];
@@ -225,7 +255,6 @@ window.onload = function () {
     showClue.innerHTML = "Clue: " + hints[categoryIndex][hintIndex];
   };
 
-
   //**********************RESET***********************    
   // This function is run whenever the user presses Play Again key.  // Reset
 
@@ -236,28 +265,4 @@ window.onload = function () {
     context.clearRect(0, 0, 400, 400);
     playGame();
   };
-}
-
-//**********************WINS & LOSSES ***********************    
-
-var wins = 0;
-var loses = 0;
-var showLives;
-var wins;
-var loses;
-
-showWins = function () {
-  
-  if (showLives == "You Win!") { 
-    alert("You have " + wins + " wins");
-    for (var i = 0; i < 0; i++);
-       
-  };
-  showLoses = function () {
-  
-    if (showLives == "Game Over!") { 
-      alert("You have " + loses + " wins");
-      for (var i = 0; i < 0; i++);
-             };
-}
 }
