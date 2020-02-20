@@ -95,38 +95,7 @@ window.onload = function () {
     };
   }
 
-// Show Wins  
-
-var wins;
-var loses;
-
-showWins = function( {
-   if(mylives = "You Win!");
-  for (var i = 0; i < mylives.length; i++);
-    console.log(showWins);
-};
-}
-
-//var getLives = document.getElementById("mylives");
-
-//var win = myLives.innerHTML = "You Win!";
-//var lose = myLives.innerHTML = "Game Over!";
-
-
-//showWins = function () {
-
-//    for (var i = 0; i < win.length; i++) {
-//      if (myLives.innerHTML == win.length) {   
-//        alert("You Win!");
-//      console.log(showWins);       
- //   };
-  //};
-//}
-
-
-
-
-/////////////////////// ANIMATION //////////////////////////////
+  /////////////////////// ANIMATION //////////////////////////////
 
   // Animate man
   var animate = function () {
