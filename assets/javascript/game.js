@@ -16,6 +16,7 @@ window.onload = function () {
   var counter;            // Count correct guesses
   var space;              // Number of spaces in word '-'
 
+
   // Get elements
   var getLives = document.getElementById("mylives");
   var getCatagory = document.getElementById("categories");
@@ -94,6 +95,31 @@ window.onload = function () {
       };
     };
   }
+
+  // Show Game Outcomes
+  
+ 
+var wins = '';          // Stored Wins
+var loses = '';         // Stored Loses
+
+var getWins=getLives.innerHTML = "You Win!" ;
+var getLoses=getLives.innerHTML = "Game Over!";
+
+showWins = function() {
+
+   if(mylives === getWins.length);
+    
+     for (var i = 0; i < wins.length; i++);
+         alert("You have " + wins + " wins" )
+    console.log(showWins); 
+} 
+  else { (mylives === getLoses.length);
+  for (var i = 0; i < loses.length; i++);
+  alert("You have " + loses + " wins" )
+  console.log(showLoses);
+}
+}
+
 
   /////////////////////// ANIMATION //////////////////////////////
 
@@ -193,10 +219,18 @@ window.onload = function () {
       if (j === -1) {
         lives -= 1;
         showLives();
+        showWins();
+        showLoses();
+        console.log(wins)
+        console.log(loses)
         animate();
       } else {
         showLives();
+        showWins();
+        showLoses();
         console.log(lives)
+        console.log(wins)
+        console.log(loses)
       }
 
     };
@@ -225,6 +259,8 @@ window.onload = function () {
     showLives();
     selectCategory();
     canvas();
+    showWins();
+    showLoses();
   };
   playGame();
 
@@ -239,6 +275,9 @@ window.onload = function () {
     var categoryIndex = categories.indexOf(chosenCategory);
     var hintIndex = chosenCategory.indexOf(word);
     showClue.innerHTML = "Clue: " + hints[categoryIndex][hintIndex];
+
+    var winIndex = ShowWins.indexOf(Wins); showWins.value;
+
   };
 
   //**********************RESET***********************    
