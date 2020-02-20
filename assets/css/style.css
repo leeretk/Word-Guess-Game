@@ -1,7 +1,7 @@
 /************ IMAGES ******************/
 img {
-  width: 150px;
-  height: 150px;
+  width: 175px;
+  height: 175px;
 }
 
 /************ HEADINGS ******************/
@@ -174,26 +174,27 @@ button:hover {
 /************ MY COUNTS ******************/
 
 .mylives {
-  font-size: 30px;
+  font-size: 40px;
   text-align: center;
   display: inline-block;
   }
 
 .clueFormat {
+  font-size: 50px;
     font-weight: normal;
     color: white;
     background-color: ffc500;
     }
 
 .myWins {
-  font-size: 30px;
+  font-size: 50px;
   text-align: center;
   display: inline-block;
   padding: 10px;
 }
 
 .myLosses {
-  font-size: 30PX;
+  font-size: 50PX;
   text-align: center;
   display: inline-block;
   padding: 10px;

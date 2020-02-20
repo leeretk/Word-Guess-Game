@@ -22,7 +22,7 @@ window.onload = function () {
   var getHint = document.getElementById("hint");
   var showClue = document.getElementById("clue");
   var getWins = document.getElementById("myWins")
-  var getLoses = document.getElementById("myLoses")
+  var getlosses = document.getElementById("myLosses")
 
   // create alphabet ul
   var buttons = function () {
@@ -36,9 +36,9 @@ window.onload = function () {
       check();
       myButtons.appendChild(letters);
       letters.appendChild(list);
-      console.log(letters)
-      console.log(list);
-    }
+      //console.log(letters);
+      //console.log(list);
+                }
   }
 
   //**********************CHOOSE CATEGORY************************    
@@ -53,7 +53,7 @@ window.onload = function () {
     } else if (chosenCategory === categories[3]) {
       categoryName.innerHTML = "The Chosen Category Is: Books";
       console.log(categoryName);
-      console.log(catetories);
+      console.log(categories);
     }
   }
 
@@ -83,40 +83,45 @@ window.onload = function () {
   }
 
   // Show lives  
+  //for each  var getLives = document.getElementById("mylives");
+
   showLives = function () {
     getLives.innerHTML = "You have " + lives + " lives";
     if (lives < 1) {
       getLives.innerHTML = "Game Over!";
       console.log(showLives);
-      console.log(showLoses);
     }
     for (var i = 0; i < guesses.length; i++) {
       if (counter + space === guesses.length) {
         getLives.innerHTML = "You Win!";
         console.log(showLives);
-        console.log(showWins);       
       };
     };
   }
 
-  //for each  var getLives = document.getElementById("mylives");
 
+  // Show Wins 
   showWins = function () {
-    getWins = "You have " + wins + " wins";
-     for (var i = 0; i < wins.length; i++) {}
-     if (wins === wins.length) { 
-      };
+    myWins.textContent = "Wins: " + wins;
+
+     for (var i = 0; i < myLives.length; i++) {}
+     
+     if (myLives >1) { 
+      wins++;
+      console.log(showWins);
+          };
     }
 
-    showLoses = function () {
-      getLoses = "You have " + loses + " wins";
- 
-      for (var i = 0; i < loses.length; i++) {}
-       if (loses === loses.length) { 
+  // Show Losses  
+    showLosses = function () {
+      myLosses.textContent = "Losses: " + losses;
+       for (var i = 0; i < myLives.length; i++) {}
+       
+       if (myLives<1) {
+         losses++
+        console.log(showLosses); 
         };
-      }
-
-
+      };
 
 
   /////////////////////// ANIMATION //////////////////////////////
@@ -221,9 +226,10 @@ window.onload = function () {
       } else {
         showLives();
         console.log(lives)
-        console.log(myWins)
-        console.log(myLoses)
-      }
+              }
+
+
+
 
     };
   }
@@ -247,14 +253,14 @@ window.onload = function () {
     lives = 10;
     counter = 0;
     space = 0;
-    loses=0;
+    losses=0;
     wins=0;
     guessResult();
     showLives();
-    showWins();
-    showLoses();
     selectCategory();
     canvas();
+    showWins();
+    showlosses();
   };
   playGame();
 
@@ -269,6 +275,8 @@ window.onload = function () {
     var categoryIndex = categories.indexOf(chosenCategory);
     var hintIndex = chosenCategory.indexOf(word);
     showClue.innerHTML = "Clue: " + hints[categoryIndex][hintIndex];
+    console.log(chosenCategory);
+    console.log(hint);
   };
 
   

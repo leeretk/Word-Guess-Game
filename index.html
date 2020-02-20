@@ -28,32 +28,35 @@
 <body>
     <div>
         <div class="alphabetNotice">
-            Click the Letters to Guess the Word or click hint to get a clue. 
+            Click the Letters to Guess the Word or click hint to get a clue.
         </div>
         <div class="wrapper">
-            <div id="buttons">             
+            <div id="buttons">
             </div>
-                <p id="categoryName" class="category-p"></p>
+            <p id="categoryName" class="category-p"></p>
             <div id="hold">
-                       </div>
-                <p id="mylives"> </p>                   
-                <p id="clue" class="clueFormat">Clue: </p>
+            </div>
+            <p id="mylives"> </p>
+            <p id="clue" class="clueFormat">Clue: </p>
             <canvas id="stickman">This Text will show if the Browser does NOT support HTML5 Canvas tag</canvas>
             <div class="container">
                 <button id="hint">Hint</button>
                 <button id="reset">Play again</button>
             </div>
             <div>
-                <p id=showWins class="clueFormat"></p>
-                <p id=showLoses class="clueFormat"></p> 
+                <ul>
+                    <li id=myWins class="myWins"> Wins: </li>
+                    <li id=myLosses class="myLosses"> Loses: </li>
+                </ul>
             </div>
         </div>
-           <script type="text/javascript" src="assets/javascript/game.js"></script>
+        <script type="text/javascript" src="assets/javascript/game.js"></script>
     </div>
     </div>
 </body>
 <br>
-</div>    
+</div>
+
 </html>
 
 <!--<div id="alphabet">
