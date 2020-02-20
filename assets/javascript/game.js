@@ -15,7 +15,7 @@ window.onload = function () {
   var lives;              // Lives
   var counter;            // Count correct guesses
   var space;              // Number of spaces in word '-'
-  
+
   // Get elements
   var getLives = document.getElementById("mylives");
   var getCatagory = document.getElementById("categories");
@@ -38,7 +38,7 @@ window.onload = function () {
       letters.appendChild(list);
       //console.log(letters);
       //console.log(list);
-                }
+    }
   }
 
   //**********************CHOOSE CATEGORY************************    
@@ -79,7 +79,7 @@ window.onload = function () {
       correct.appendChild(guess);
       console.log(guess);
       console.log(correct);
-          };
+    };
   }
 
   // Show lives  
@@ -104,24 +104,25 @@ window.onload = function () {
   showWins = function () {
     myWins.textContent = "Wins: " + wins;
 
-     for (var i = 0; i < myLives.length; i++) {}
-     
-     if (myLives >1) { 
+    for (var i = 0; i < wins.length; i++) { }
+
+    if (myWins > 1) {
       wins++;
       console.log(showWins);
-          };
-    }
+    };
+  }
 
   // Show Losses  
-    showLosses = function () {
-      myLosses.textContent = "Losses: " + losses;
-       for (var i = 0; i < myLives.length; i++) {}
-       
-       if (myLives<1) {
-         losses++
-        console.log(showLosses); 
-        };
-      };
+  showLosses = function () {
+    myLosses.textContent = "Losses: " + losses;
+
+    for (var i = 0; i < losses.length; i++) { }
+
+    if (myLosses < 1) {
+      losses++
+      console.log(showLosses);
+    };
+  }
 
 
   /////////////////////// ANIMATION //////////////////////////////
@@ -150,10 +151,10 @@ window.onload = function () {
     context.stroke();
   };
 
-//Define a starting point in position (0,0), and an ending point in position (200,100). Then use the stroke() method to actually draw the line:
-//moveTo(x,y) - defines the starting point of the line
-//lineTo(x,y) - defines the ending point of the line
-//Define a circle with the arc() method. Then use the stroke() method to actually draw the circle:
+  //Define a starting point in position (0,0), and an ending point in position (200,100). Then use the stroke() method to actually draw the line:
+  //moveTo(x,y) - defines the starting point of the line
+  //lineTo(x,y) - defines the ending point of the line
+  //Define a circle with the arc() method. Then use the stroke() method to actually draw the circle:
 
   draw = function ($pathFromx, $pathFromy, $pathTox, $pathToy) {
 
@@ -162,7 +163,7 @@ window.onload = function () {
     context.stroke();
   };
 
-//fillRect(x,y,width,height)
+  //fillRect(x,y,width,height)
 
   frame1 = function () {
     draw(0, 150, 150, 150);
@@ -204,9 +205,7 @@ window.onload = function () {
 
   // OnClick Function
   check = function () {
-    list.onclick = function () 
-    
-    {
+    list.onclick = function () {
       var guess = (this.innerHTML);
       this.setAttribute("class", "active");
       this.onclick = null;
@@ -217,16 +216,22 @@ window.onload = function () {
           counter += 1;
         };
       }
-    
+
       var j = (word.indexOf(guess));
       if (j === -1) {
         lives -= 1;
         showLives();
+        showWins();
+        showLosses();
         animate();
       } else {
         showLives();
+        showWins();
+        showLosses();
         console.log(lives)
-              }
+        console.log(wins)
+        console.log(losses)
+      }
 
 
 
@@ -253,14 +258,14 @@ window.onload = function () {
     lives = 10;
     counter = 0;
     space = 0;
-    losses=0;
-    wins=0;
+    losses = 0;
+    wins = 0;
     guessResult();
     showLives();
     selectCategory();
     canvas();
     showWins();
-    showlosses();
+    showLosses();
   };
   playGame();
 
@@ -279,7 +284,7 @@ window.onload = function () {
     console.log(hint);
   };
 
-  
+
   //**********************RESET***********************    
   // This function is run whenever the user presses Play Again key.  // Reset
 
@@ -291,5 +296,5 @@ window.onload = function () {
     playGame();
   };
 }
-  //********************************************* 
+  //*********************************************
 
