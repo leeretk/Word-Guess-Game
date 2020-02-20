@@ -15,13 +15,14 @@ window.onload = function () {
   var lives;              // Lives
   var counter;            // Count correct guesses
   var space;              // Number of spaces in word '-'
-
-
+  
   // Get elements
   var getLives = document.getElementById("mylives");
   var getCatagory = document.getElementById("categories");
   var getHint = document.getElementById("hint");
   var showClue = document.getElementById("clue");
+  var getWins = document.getElementById("myWins")
+  var getLoses = document.getElementById("myLoses")
 
   // create alphabet ul
   var buttons = function () {
@@ -87,38 +88,35 @@ window.onload = function () {
     if (lives < 1) {
       getLives.innerHTML = "Game Over!";
       console.log(showLives);
+      console.log(showLoses);
     }
     for (var i = 0; i < guesses.length; i++) {
       if (counter + space === guesses.length) {
         getLives.innerHTML = "You Win!";
-        console.log(showLives);       
+        console.log(showLives);
+        console.log(showWins);       
       };
     };
   }
 
-  // Show Game Outcomes
-  
+  //for each  var getLives = document.getElementById("mylives");
+
+  showWins = function () {
+    getWins = "You have " + wins + " wins";
+     for (var i = 0; i < wins.length; i++) {}
+     if (wins === wins.length) { 
+      };
+    }
+
+    showLoses = function () {
+      getLoses = "You have " + loses + " wins";
  
-var wins = '';          // Stored Wins
-var loses = '';         // Stored Loses
+      for (var i = 0; i < loses.length; i++) {}
+       if (loses === loses.length) { 
+        };
+      }
 
-var getWins=getLives.innerHTML = "You Win!" ;
-var getLoses=getLives.innerHTML = "Game Over!";
 
-showWins = function() {
-
-   if(mylives === getWins.length);
-    
-     for (var i = 0; i < wins.length; i++);
-         alert("You have " + wins + " wins" )
-    console.log(showWins); 
-} 
-  else { (mylives === getLoses.length);
-  for (var i = 0; i < loses.length; i++);
-  alert("You have " + loses + " wins" )
-  console.log(showLoses);
-}
-}
 
 
   /////////////////////// ANIMATION //////////////////////////////
@@ -219,18 +217,12 @@ showWins = function() {
       if (j === -1) {
         lives -= 1;
         showLives();
-        showWins();
-        showLoses();
-        console.log(wins)
-        console.log(loses)
         animate();
       } else {
         showLives();
-        showWins();
-        showLoses();
         console.log(lives)
-        console.log(wins)
-        console.log(loses)
+        console.log(myWins)
+        console.log(myLoses)
       }
 
     };
@@ -255,12 +247,14 @@ showWins = function() {
     lives = 10;
     counter = 0;
     space = 0;
+    loses=0;
+    wins=0;
     guessResult();
     showLives();
-    selectCategory();
-    canvas();
     showWins();
     showLoses();
+    selectCategory();
+    canvas();
   };
   playGame();
 
@@ -275,11 +269,9 @@ showWins = function() {
     var categoryIndex = categories.indexOf(chosenCategory);
     var hintIndex = chosenCategory.indexOf(word);
     showClue.innerHTML = "Clue: " + hints[categoryIndex][hintIndex];
-
-    var winIndex = ShowWins.indexOf(Wins); showWins.value;
-
   };
 
+  
   //**********************RESET***********************    
   // This function is run whenever the user presses Play Again key.  // Reset
 
