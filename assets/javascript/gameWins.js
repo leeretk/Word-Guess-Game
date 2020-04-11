@@ -424,3 +424,26 @@ show = function() {
 //}
 
 
+// Show Game Outcomes
+  
+ 
+var wins = '';          // Stored Wins
+var loses = '';         // Stored Loses
+
+var getWins=getLives.innerHTML = "You Win!" ;
+var getLoses=getLives.innerHTML = "Game Over!";
+
+showWins = function() {
+
+   if(mylives === getWins.length);
+    
+     for (var i = 0; i < wins.length; i++);
+         alert("You have " + wins + " wins" )
+    console.log(showWins); 
+} 
+  else { (mylives === getLoses.length);
+  for (var i = 0; i < loses.length; i++);
+  alert("You have " + loses + " wins" )
+  console.log(showLoses);
+}
+}
